@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Traffic
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Carros
+  - Water
+  - UI
+  - Piso
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Carros
+    uniqueID: 2861217411
+    locked: 0
+  - name: Armas
+    uniqueID: 2670539031
+    locked: 0
+  - name: Proyectiles
+    uniqueID: 1797893635
+    locked: 0
+  m_RenderingLayers:
+  - Default
