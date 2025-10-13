@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class WeaponDemo : MonoBehaviour
 {
     [Header("Config Arma")]
     public Animator animator;        // animador de la catapulta / arma
@@ -25,6 +25,6 @@ public class Weapon : MonoBehaviour
     public void LaunchProjectile()
     {
         GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        proj.GetComponent<Projectile>().Init(targetPos, damage);
+        proj.GetComponent<ProjectileDemo>().Init(targetPos, damage);
     }
 }

@@ -3,20 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|c:\\users\\vpmf2\\desktop\\gamedesing\\camionsimulator\\assets\\scrips\\weaponpickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|c:\\users\\vpmf2\\desktop\\gamedesing\\camionsimulator\\assets\\scrips\\positionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\positionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\assets\\scrips\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\assets\\scrips\\lookatmouse2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\lookatmouse2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\assets\\scrips\\playerweapons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\playerweapons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\assets\\scrips\\weaponpickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\weaponpickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|c:\\users\\vpmf2\\desktop\\gamedesing\\camionsimulator\\assets\\scrips\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\assets\\scrips\\autodestructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\autodestructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\assets\\scrips\\trafficcar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\trafficcar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\assets\\scrips\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\assets\\scrips\\no usados\\projectiledirijid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\no usados\\projectiledirijid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\assets\\scrips\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{22A26399-756F-70F3-70B0-8E79B54B92E9}|Assembly-CSharp.csproj|C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\assets\\scrips\\playertruckcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,6 +79,91 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PositionManager.cs",
+              "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\PositionManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\PositionManager.cs",
+              "ToolTip": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\PositionManager.cs",
+              "RelativeToolTip": "Assets\\Scrips\\PositionManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T13:29:41.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LookAtMouse2D.cs",
+              "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\LookAtMouse2D.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\LookAtMouse2D.cs",
+              "ToolTip": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\LookAtMouse2D.cs",
+              "RelativeToolTip": "Assets\\Scrips\\LookAtMouse2D.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T22:25:49.35Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Autodestructor.cs",
+              "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\Autodestructor.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Autodestructor.cs",
+              "ToolTip": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\Autodestructor.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Autodestructor.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T23:40:31.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Projectile.cs",
+              "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\Projectile.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Projectile.cs",
+              "ToolTip": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\Projectile.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Projectile.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T23:22:54.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProjectileDirijid.cs",
+              "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\no usados\\ProjectileDirijid.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\no usados\\ProjectileDirijid.cs",
+              "ToolTip": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\no usados\\ProjectileDirijid.cs",
+              "RelativeToolTip": "Assets\\Scrips\\no usados\\ProjectileDirijid.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T23:22:15.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Weapon.cs",
+              "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\Weapon.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Weapon.cs",
+              "ToolTip": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\Weapon.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Weapon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T23:21:37.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerWeapons.cs",
+              "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\PlayerWeapons.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\PlayerWeapons.cs",
+              "ToolTip": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\PlayerWeapons.cs",
+              "RelativeToolTip": "Assets\\Scrips\\PlayerWeapons.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T01:17:06.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "WeaponPickup.cs",
               "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\WeaponPickup.cs",
               "RelativeDocumentMoniker": "Assets\\Scrips\\WeaponPickup.cs",
@@ -66,37 +171,11 @@
               "RelativeToolTip": "Assets\\Scrips\\WeaponPickup.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T01:16:33.862Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T01:16:33.862Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Projectile.cs",
-              "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\Projectile.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrips\\Projectile.cs",
-              "ToolTip": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\Projectile.cs",
-              "RelativeToolTip": "Assets\\Scrips\\Projectile.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAgwB8AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T00:04:54.848Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Weapon.cs",
-              "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\Weapon.cs",
-              "RelativeDocumentMoniker": "Assets\\Scrips\\Weapon.cs",
-              "ToolTip": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\Weapon.cs",
-              "RelativeToolTip": "Assets\\Scrips\\Weapon.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T00:04:12.785Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "UniversalRenderPipeline.cs",
               "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Library\\PackageCache\\com.unity.render-pipelines.universal@24527717fb47\\Runtime\\UniversalRenderPipeline.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal@24527717fb47\\Runtime\\UniversalRenderPipeline.cs",
@@ -109,19 +188,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "TrafficCar.cs",
               "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\TrafficCar.cs",
               "RelativeDocumentMoniker": "Assets\\Scrips\\TrafficCar.cs",
               "ToolTip": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\TrafficCar.cs",
               "RelativeToolTip": "Assets\\Scrips\\TrafficCar.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwBQAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-11T01:36:39.522Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "TrafficSpawner.cs",
               "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\TrafficSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scrips\\TrafficSpawner.cs",
@@ -133,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "PlayerTruckController.cs",
               "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\PlayerTruckController.cs",
               "RelativeDocumentMoniker": "Assets\\Scrips\\PlayerTruckController.cs",
@@ -145,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "CameraFollow.cs",
               "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\CameraFollow.cs",
               "RelativeDocumentMoniker": "Assets\\Scrips\\CameraFollow.cs",
@@ -157,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "CarreteraSpawner.cs",
               "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\CarreteraSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scrips\\CarreteraSpawner.cs",
@@ -169,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "CarreteraLoop.cs",
               "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\CarreteraLoop.cs",
               "RelativeDocumentMoniker": "Assets\\Scrips\\CarreteraLoop.cs",
@@ -177,11 +256,12 @@
               "RelativeToolTip": "Assets\\Scrips\\CarreteraLoop.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T02:21:12.643Z"
+              "WhenOpened": "2025-09-09T02:21:12.643Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\vpmf2\\Desktop\\gamedesing\\CamionSimulator\\Assets\\Scrips\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scrips\\PlayerController.cs",
@@ -189,7 +269,8 @@
               "RelativeToolTip": "Assets\\Scrips\\PlayerController.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwA0AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T00:51:02.765Z"
+              "WhenOpened": "2025-09-09T00:51:02.765Z",
+              "EditorCaption": ""
             }
           ]
         }

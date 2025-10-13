@@ -11,8 +11,11 @@ public class PlayerWeapons : MonoBehaviour
         if (currentWeapon != null) Destroy(currentWeapon);
 
         // Instanciamos la nueva
-        currentWeapon = Instantiate(weaponPrefab, weaponHolder.position, Quaternion.Euler(180f, 0f, 0f), weaponHolder);
+        currentWeapon = Instantiate(weaponPrefab, weaponHolder);
 
+        // Aseguramos que quede alineada al holder
+        currentWeapon.transform.localPosition = Vector3.zero;
+        currentWeapon.transform.localRotation = Quaternion.Euler(0f,0f,0f);
         Debug.Log("Equipada arma: " + weaponPrefab.name);
     }
 }

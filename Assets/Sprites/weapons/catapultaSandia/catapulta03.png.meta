@@ -117,7 +117,7 @@ TextureImporter:
         width: 1306
         height: 2565
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -130,77 +130,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: catapulta03_1
-      rect:
-        serializedVersion: 2
-        x: 2500
-        y: 3250
-        width: 10
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0d5f6e16be57e7d10800000000000000
-      internalID: 2125265727985743312
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: catapulta03_2
-      rect:
-        serializedVersion: 2
-        x: 2518
-        y: 3252
-        width: 9
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ec2925a5e9723dae0800000000000000
-      internalID: -1525832287674789170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: catapulta03_3
-      rect:
-        serializedVersion: 2
-        x: 1598
-        y: 626
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2ea0496c4bc1e1530800000000000000
-      internalID: 3827528296062782178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: acbe7845d92f5ec4aaaa38173664c5d2
     internalID: 0
     vertices: []
     indices: 

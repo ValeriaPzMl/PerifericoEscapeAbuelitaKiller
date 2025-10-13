@@ -2,7 +2,7 @@ Using pre-set license
 Built from '6000.1/staging' branch; Version is '6000.1.0f1 (9ea152932a88) revision 10395986'; Using compiler version '194234433'; Build Type 'Release'
 OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'es' Physical Memory: 32472 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
-Date: 2025-09-29T00:08:22Z
+Date: 2025-10-11T02:39:59Z
 
 COMMAND LINE ARGUMENTS:
 C:\Program Files\Unity\Hub\Editor\6000.1.0f1\Editor\Unity.exe
@@ -16,7 +16,7 @@ C:/Users/vpmf2/Desktop/gamedesing/CamionSimulator
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-49215
+61722
 -job-worker-count
 7
 -background-job-worker-count
@@ -62,12 +62,12 @@ C:/Users/vpmf2/Desktop/gamedesing/CamionSimulator
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [37824]  Target information:
+Player connection [40684]  Target information:
 
-Player connection [37824]  * "[IP] 10.0.0.12 [Port] 0 [Flags] 2 [Guid] 1124198795 [EditorId] 1124198795 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [40684]  * "[IP] 10.0.0.12 [Port] 0 [Flags] 2 [Guid] 2115039746 [EditorId] 2115039746 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [37824] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [37824] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [40684] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [40684] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 7
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -79,7 +79,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 3.42 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 3.13 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.1.0f1 (9ea152932a88)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.1.0f1/Editor/Data/Resources/UnitySubsystems
@@ -96,43 +96,43 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.1.0f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.1.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.1.0f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56584
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56368
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.1.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002008 seconds.
-- Loaded All Assemblies, in  0.297 seconds
+Registered in 0.001609 seconds.
+- Loaded All Assemblies, in  0.291 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.262 seconds
-Domain Reload Profiling: 557ms
-	BeginReloadAssembly (107ms)
+- Finished resetting the current domain, in  0.242 seconds
+Domain Reload Profiling: 531ms
+	BeginReloadAssembly (106ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (29ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (39ms)
-	LoadAllAssembliesAndSetupDomain (113ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (35ms)
+	LoadAllAssembliesAndSetupDomain (111ms)
 		LoadAssemblies (103ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (111ms)
-			TypeCache.Refresh (109ms)
-				TypeCache.ScanAssembly (99ms)
+		AnalyzeDomain (108ms)
+			TypeCache.Refresh (107ms)
+				TypeCache.ScanAssembly (96ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (262ms)
+	FinalizeReload (242ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (228ms)
+		SetupLoadedEditorAssemblies (210ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (39ms)
 			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (39ms)
-			ProcessInitializeOnLoadAttributes (101ms)
-			ProcessInitializeOnLoadMethodAttributes (45ms)
+			BeforeProcessingInitializeOnLoad (37ms)
+			ProcessInitializeOnLoadAttributes (88ms)
+			ProcessInitializeOnLoadMethodAttributes (42ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -141,76 +141,504 @@ Domain Reload Profiling: 557ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.656 seconds
-Refreshing native plugins compatible for Editor in 1.31 ms, found 4 plugins.
+- Loaded All Assemblies, in  0.658 seconds
+Refreshing native plugins compatible for Editor in 1.50 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.594 seconds
-Domain Reload Profiling: 1246ms
-	BeginReloadAssembly (140ms)
+- Finished resetting the current domain, in  0.570 seconds
+Domain Reload Profiling: 1223ms
+	BeginReloadAssembly (130ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (23ms)
-	RebuildCommonClasses (27ms)
-	RebuildNativeTypeToScriptingClass (9ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (8ms)
 	initialDomainReloadingComplete (32ms)
-	LoadAllAssembliesAndSetupDomain (444ms)
-		LoadAssemblies (324ms)
+	LoadAllAssembliesAndSetupDomain (455ms)
+		LoadAssemblies (309ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (204ms)
-			TypeCache.Refresh (148ms)
-				TypeCache.ScanAssembly (135ms)
-			BuildScriptInfoCaches (45ms)
-			ResolveRequiredComponents (8ms)
-	FinalizeReload (594ms)
+		AnalyzeDomain (222ms)
+			TypeCache.Refresh (157ms)
+				TypeCache.ScanAssembly (143ms)
+			BuildScriptInfoCaches (52ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (570ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (486ms)
+		SetupLoadedEditorAssemblies (458ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (1ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (99ms)
-			ProcessInitializeOnLoadAttributes (289ms)
-			ProcessInitializeOnLoadMethodAttributes (87ms)
-			AfterProcessingInitializeOnLoad (6ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (91ms)
+			ProcessInitializeOnLoadAttributes (279ms)
+			ProcessInitializeOnLoadMethodAttributes (79ms)
+			AfterProcessingInitializeOnLoad (4ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (6ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 1.80 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 1.34 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 217 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6735 unused Assets / (6.6 MB). Loaded Objects now: 7403.
-Memory consumption went from 175.1 MB to 168.5 MB.
-Total: 7.593800 ms (FindLiveObjects: 0.550800 ms CreateObjectMapping: 0.483600 ms MarkObjects: 3.961900 ms  DeleteObjects: 2.596700 ms)
+Unloading 232 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6778 unused Assets / (6.7 MB). Loaded Objects now: 7461.
+Memory consumption went from 180.7 MB to 174.0 MB.
+Total: 7.169300 ms (FindLiveObjects: 0.545700 ms CreateObjectMapping: 0.508600 ms MarkObjects: 3.506200 ms  DeleteObjects: 2.607900 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 991155.321909 seconds.
-  path: Assets/Sprites/weapons/catapultaSandia/catapulta01.png
-  artifactKey: Guid(3678c6de39aad0540b1f9a411cbfa3b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/weapons/catapultaSandia/catapulta01.png using Guid(3678c6de39aad0540b1f9a411cbfa3b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7e027b0b6d1f4496c690f157cba8c3f1') in 0.1582917 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+  Time since last request: 787364.837053 seconds.
+  path: Assets/Sprites/weapons/lanzaCamisas/camisaHit.png
+  artifactKey: Guid(a392ff66da69a454380ecfb8f8911c83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/weapons/lanzaCamisas/camisaHit.png using Guid(a392ff66da69a454380ecfb8f8911c83) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9584dbfac0ae599e918dd6f0d1ebb4a3') in 0.1235668 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Sprites/weapons/catapultaSandia/catapulta03.png
-  artifactKey: Guid(dd1a2f194aed73c449d3cccc804e7692) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/weapons/catapultaSandia/catapulta03.png using Guid(dd1a2f194aed73c449d3cccc804e7692) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'beaf31edeb5ee17808b2d55baf3dd793') in 0.0502666 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+  Time since last request: 65.516122 seconds.
+  path: Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas01.png
+  artifactKey: Guid(412e04c9ccdaddd47beb20972e79e059) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas01.png using Guid(412e04c9ccdaddd47beb20972e79e059) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cc662472e920b75147a0a6a0434c8ab6') in 0.0367657 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.330746 seconds.
+  path: Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas02.png
+  artifactKey: Guid(6c394c4efa083d04dbea715e8eb56ec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas02.png using Guid(6c394c4efa083d04dbea715e8eb56ec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '05c1d78abb1834b2c3e53fcfdd969af8') in 0.0315886 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.098055 seconds.
+  path: Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas03.png
+  artifactKey: Guid(20a33fa5e95f4424c86d56c6a7c068ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas03.png using Guid(20a33fa5e95f4424c86d56c6a7c068ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c9ef6464c735ea0fec67c8a9bd8fb74b') in 0.0302066 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.048965 seconds.
+  path: Assets/Sprites/weapons/lanzaCamisas/camisa.png
+  artifactKey: Guid(8af226dd313367742aa3a85630a5a83c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/weapons/lanzaCamisas/camisa.png using Guid(8af226dd313367742aa3a85630a5a83c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1afb04579335c33abf74d2a3fb88943b') in 0.0331404 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.264657 seconds.
+  path: Assets/Sprites/weapons/lanzaCamisas/camisaHit.png
+  artifactKey: Guid(a392ff66da69a454380ecfb8f8911c83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/weapons/lanzaCamisas/camisaHit.png using Guid(a392ff66da69a454380ecfb8f8911c83) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '35c87e2895c37e6d69c4fcc96b721919') in 0.0475662 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.494964 seconds.
+  path: Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas01.png
+  artifactKey: Guid(412e04c9ccdaddd47beb20972e79e059) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas01.png using Guid(412e04c9ccdaddd47beb20972e79e059) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '60dff4a1969ab40a98f64d5a200a8c34') in 0.0355557 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.633907 seconds.
+  path: Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas02.png
+  artifactKey: Guid(6c394c4efa083d04dbea715e8eb56ec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas02.png using Guid(6c394c4efa083d04dbea715e8eb56ec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a0398a0d0465b042a025e51d6101bde8') in 0.0338216 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.127412 seconds.
+  path: Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas03.png
+  artifactKey: Guid(20a33fa5e95f4424c86d56c6a7c068ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas03.png using Guid(20a33fa5e95f4424c86d56c6a7c068ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cd093a61187d7de2ef5b7a21ac1f0cfa') in 0.0351007 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 44.742404 seconds.
+  path: Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas.anim
+  artifactKey: Guid(becdada8ecca59443bfb277d82fdc1ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas.anim using Guid(becdada8ecca59443bfb277d82fdc1ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4eb0703d7f74445421af0bd8a223ca21') in 0.0017274 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.311452 seconds.
+  path: Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas01_0.controller
+  artifactKey: Guid(b74e6ed9ceb287a49b33c37918f1f563) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/weapons/lanzaCamisas/lanzaCamisas01_0.controller using Guid(b74e6ed9ceb287a49b33c37918f1f563) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a3aaa1c08b59e5053f7a2513c2d89a2d') in 0.0019794 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 127.965492 seconds.
+  path: Assets/Prefabs/catapultaPinaPrefab.prefab
+  artifactKey: Guid(74bbcc610330d26498970d6fd3c86226) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/catapultaPinaPrefab.prefab using Guid(74bbcc610330d26498970d6fd3c86226) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0c97fa6d33c671efb231b06d738f9053') in 0.6266103 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 42
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000034 seconds.
-  path: Assets/Sprites/weapons/catapultaSandia/catapulta04.png
-  artifactKey: Guid(4a660f2848817374ca0a8f22d61418f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/weapons/catapultaSandia/catapulta04.png using Guid(4a660f2848817374ca0a8f22d61418f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '460db3c1ae5f03fcfe180171387cb874') in 0.0533138 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+  path: Assets/Prefabs/piña_0.prefab
+  artifactKey: Guid(08985e3966362bc4fb50d66fe271dce3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/piña_0.prefab using Guid(08985e3966362bc4fb50d66fe271dce3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cfac3ee8857b4dffc2624b8c21a17edc') in 0.0354857 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Prefabs/tostadoraTaker.prefab
+  artifactKey: Guid(4decb26fa50d0cb42821ca85a0a0afa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/tostadoraTaker.prefab using Guid(4decb26fa50d0cb42821ca85a0a0afa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6938af0dc382d7c50b4e04c970921ce1') in 0.1871827 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 47
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Prefabs/pistolaClavosPrefab.prefab
+  artifactKey: Guid(63d098ac764925c46ae00c49b91ce536) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/pistolaClavosPrefab.prefab using Guid(63d098ac764925c46ae00c49b91ce536) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '907ff325a9466c3f9d5503c337f73a03') in 0.037973 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 35
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Prefabs/tostadoraPrefab.prefab
+  artifactKey: Guid(9b81cae4ee1a167419d6d0a8a0a8d0f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/tostadoraPrefab.prefab using Guid(9b81cae4ee1a167419d6d0a8a0a8d0f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7ca465d1711c189249759fef44a299ec') in 0.0370211 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 41
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Prefabs/clavos_0.prefab
+  artifactKey: Guid(1f18c44f11df5154ba92815bfa22977b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/clavos_0.prefab using Guid(1f18c44f11df5154ba92815bfa22977b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c55af3f00327bc029ea89fb979414701') in 0.025591 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.995501 seconds.
+  path: Assets/Prefabs/camisaHit_0.prefab
+  artifactKey: Guid(ee837113b4a76884c9708ab801f4c6b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/camisaHit_0.prefab using Guid(ee837113b4a76884c9708ab801f4c6b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ba49d0c4beb65fd5e0278df6db8c34d3') in 0.0212034 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 391.119986 seconds.
+  path: Assets/Prefabs/lanzaCamisasTaker.prefab
+  artifactKey: Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/lanzaCamisasTaker.prefab using Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cc56e03e977b412946d64aad6d355a84') in 0.0369768 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.800798 seconds.
+  path: Assets/Prefabs/lanzaCamisasTaker.prefab
+  artifactKey: Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/lanzaCamisasTaker.prefab using Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f57fb2cf5a6089929f083c338eea44a6') in 0.0318061 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.835951 seconds.
+  path: Assets/Prefabs/lanzaCamisasTaker.prefab
+  artifactKey: Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/lanzaCamisasTaker.prefab using Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1f6fbf266b4d842a4c015bb0d1be149d') in 0.0328293 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.646 seconds
+Refreshing native plugins compatible for Editor in 1.50 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.621 seconds
+Domain Reload Profiling: 1265ms
+	BeginReloadAssembly (194ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (20ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (53ms)
+	RebuildCommonClasses (27ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (24ms)
+	LoadAllAssembliesAndSetupDomain (389ms)
+		LoadAssemblies (309ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (159ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (139ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (622ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (459ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (1ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (97ms)
+			ProcessInitializeOnLoadAttributes (294ms)
+			ProcessInitializeOnLoadMethodAttributes (58ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (13ms)
+Refreshing native plugins compatible for Editor in 2.34 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 36 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6776 unused Assets / (6.9 MB). Loaded Objects now: 7506.
+Memory consumption went from 160.9 MB to 153.9 MB.
+Total: 10.522500 ms (FindLiveObjects: 0.747100 ms CreateObjectMapping: 0.718200 ms MarkObjects: 5.117400 ms  DeleteObjects: 3.938300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.619 seconds
+Refreshing native plugins compatible for Editor in 1.47 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.634 seconds
+Domain Reload Profiling: 1252ms
+	BeginReloadAssembly (172ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (41ms)
+	RebuildCommonClasses (29ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (382ms)
+		LoadAssemblies (297ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (165ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (147ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (635ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (469ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (97ms)
+			ProcessInitializeOnLoadAttributes (299ms)
+			ProcessInitializeOnLoadMethodAttributes (62ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (15ms)
+Refreshing native plugins compatible for Editor in 1.73 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 36 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6776 unused Assets / (7.6 MB). Loaded Objects now: 7508.
+Memory consumption went from 162.6 MB to 155.0 MB.
+Total: 9.452200 ms (FindLiveObjects: 0.701800 ms CreateObjectMapping: 0.597200 ms MarkObjects: 4.609700 ms  DeleteObjects: 3.542400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.639 seconds
+Refreshing native plugins compatible for Editor in 1.70 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.655 seconds
+Domain Reload Profiling: 1292ms
+	BeginReloadAssembly (179ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (11ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (45ms)
+	RebuildCommonClasses (29ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (24ms)
+	LoadAllAssembliesAndSetupDomain (395ms)
+		LoadAssemblies (306ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (170ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (147ms)
+			ResolveRequiredComponents (11ms)
+	FinalizeReload (655ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (484ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (106ms)
+			ProcessInitializeOnLoadAttributes (299ms)
+			ProcessInitializeOnLoadMethodAttributes (68ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (15ms)
+Refreshing native plugins compatible for Editor in 2.11 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 36 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6776 unused Assets / (7.3 MB). Loaded Objects now: 7510.
+Memory consumption went from 164.4 MB to 157.2 MB.
+Total: 10.613100 ms (FindLiveObjects: 0.714700 ms CreateObjectMapping: 0.801400 ms MarkObjects: 4.866400 ms  DeleteObjects: 4.229500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 98.946822 seconds.
+  path: Assets/Prefabs/lanzaCamisasTaker.prefab
+  artifactKey: Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/lanzaCamisasTaker.prefab using Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '21a34221c12c3fdeab709d3b1fbac4f8') in 0.4253727 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 34
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.889597 seconds.
+  path: Assets/Prefabs/lanzaCamisasTaker.prefab
+  artifactKey: Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/lanzaCamisasTaker.prefab using Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6553f839e12c314a6016d972f24ebddf') in 0.0179159 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 33
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.138452 seconds.
+  path: Assets/Prefabs/lanzaCamisasTaker.prefab
+  artifactKey: Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/lanzaCamisasTaker.prefab using Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '73e0a024261e41292998ebbbee54fc11') in 0.0334516 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 33
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.673 seconds
+Refreshing native plugins compatible for Editor in 1.77 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.645 seconds
+Domain Reload Profiling: 1317ms
+	BeginReloadAssembly (200ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (21ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (53ms)
+	RebuildCommonClasses (29ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (407ms)
+		LoadAssemblies (315ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (177ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (153ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (646ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (477ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (104ms)
+			ProcessInitializeOnLoadAttributes (312ms)
+			ProcessInitializeOnLoadMethodAttributes (51ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (12ms)
+Refreshing native plugins compatible for Editor in 2.95 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 36 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6776 unused Assets / (7.1 MB). Loaded Objects now: 7534.
+Memory consumption went from 162.5 MB to 155.4 MB.
+Total: 10.713900 ms (FindLiveObjects: 0.750400 ms CreateObjectMapping: 0.571500 ms MarkObjects: 5.386600 ms  DeleteObjects: 4.003900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 182.649734 seconds.
+  path: Assets/Prefabs/lanzaCamisasTaker.prefab
+  artifactKey: Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/lanzaCamisasTaker.prefab using Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9082e9b32f245100e3d773b4fa45a8f1') in 0.5250855 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 34
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.248671 seconds.
+  path: Assets/Prefabs/lanzaCamisasTaker.prefab
+  artifactKey: Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/lanzaCamisasTaker.prefab using Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '66e9c0e88a017f38a848625b8c4e0398') in 0.0330287 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 33
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.674 seconds
+Refreshing native plugins compatible for Editor in 1.50 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.653 seconds
+Domain Reload Profiling: 1325ms
+	BeginReloadAssembly (193ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (21ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (47ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (27ms)
+	LoadAllAssembliesAndSetupDomain (408ms)
+		LoadAssemblies (312ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (176ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (156ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (654ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (487ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (109ms)
+			ProcessInitializeOnLoadAttributes (319ms)
+			ProcessInitializeOnLoadMethodAttributes (50ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (13ms)
+Refreshing native plugins compatible for Editor in 2.05 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 36 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6776 unused Assets / (7.0 MB). Loaded Objects now: 7558.
+Memory consumption went from 164.0 MB to 157.1 MB.
+Total: 10.508400 ms (FindLiveObjects: 0.736200 ms CreateObjectMapping: 0.567700 ms MarkObjects: 4.992100 ms  DeleteObjects: 4.127800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 133.960106 seconds.
+  path: Assets/Prefabs/lanzaCamisasTaker.prefab
+  artifactKey: Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/lanzaCamisasTaker.prefab using Guid(1214aba5a4811064a961e2f645304ea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'eb1c0c39373a8077046a1f1ab7c9f6ae') in 0.4190973 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 42
+
