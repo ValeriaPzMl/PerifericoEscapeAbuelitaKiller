@@ -24,6 +24,7 @@ public class WeaponDemo : MonoBehaviour
     // Este lo llamas desde el último frame del animador
     public void LaunchProjectile()
     {
+        
         GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         proj.GetComponent<ProjectileDemo>().Init(targetPos, damage);
     }

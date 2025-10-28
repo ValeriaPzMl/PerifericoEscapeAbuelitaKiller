@@ -4,6 +4,7 @@ public class WeaponPickup : MonoBehaviour
 {
     public GameObject weaponPrefab; // la catapulta (un prefab con Weapon.cs)
 
+   
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player")) // tu camión

@@ -9,6 +9,7 @@ public class ProjectileDemo : MonoBehaviour
     public GameObject impactPrefab; // sandía aplastada
 
 
+
     public void Init(Vector3 target, int dmg)
     {
         targetPos = target;
@@ -32,10 +33,17 @@ public class ProjectileDemo : MonoBehaviour
 
     void Hit()
     {
+        
+        
         // instanciar sandía aplastada en el punto del impacto
         if (impactPrefab != null)
         {
-            GameObject impact = Instantiate(impactPrefab, targetPos, transform.rotation);
+            Vector3 euler = transform.rotation.eulerAngles; // Obtener la rotación en ángulos
+            euler.z += 180f; // Sumar 180 grados al eje Z
+            Quaternion rotacion = Quaternion.Euler(euler); // Convertir de nuevo a Quaternion
+
+            GameObject impact = Instantiate(impactPrefab, targetPos, rotacion);
+
 
             // revisar si hay algún coche
             Collider2D[] hits = Physics2D.OverlapCircleAll(targetPos, 0.5f);
