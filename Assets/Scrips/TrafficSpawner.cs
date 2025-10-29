@@ -62,5 +62,24 @@ public class TrafficSpawner : MonoBehaviour
         // 5. Instanciar
         GameObject nuevoCarro = Instantiate(prefab, pos, Quaternion.identity);
         nuevoCarro.tag = "Traffic"; // aseguramos el tag
-    }  
+    }
+
+    public void ActualizarCarriles(int numCarriles)
+    {
+        switch (numCarriles)
+        {
+            case 3:
+                posicionesCarriles = new float[] { -4.5f, 0f, 4.5f };
+                break;
+            case 4:
+                posicionesCarriles = new float[] { -4.5f, 0f, 4.5f, 9f };
+                break;
+            case 5:
+                posicionesCarriles = new float[] { -9f, -4.5f, 0f, 4.5f, 9f };
+                break;
+        }
+
+        Debug.Log("Carriles actualizados a: " + numCarriles);
+    }
+
 }

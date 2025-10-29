@@ -1,35 +1,41 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 
 public class CarreteraSpawner : MonoBehaviour
 {
-    [Header("Prefabs de carretera")]
-    public GameObject[] prefabsCarretera;   // diferentes tipos de carretera
-    public Transform jugador;               // referencia al camión
+    [Header("Referencias")]
+    public Transform jugador; // referencia al camiÃ³n
 
-    [Header("Configuración")]
-    public float largoChunk = 29f;          // largo de cada tramo de carretera
-    public int chunksActivos = 4;           // cuántos mantenemos en escena
+    [Header("Tipos especÃ­ficos")]
+    public GameObject carretera3;
+    public GameObject cambio34;
+    public GameObject carretera4;
+    public GameObject cambio45;
+    public GameObject carretera5;
+
+    [Header("ConfiguraciÃ³n")]
+    public float largoChunk = 29f; // largo de cada tramo de carretera
+    public int chunksActivos = 4;  // cuÃ¡ntos mantenemos en escena
 
     private List<GameObject> carreteras = new List<GameObject>();
-    private float spawnZ = 0f;              // posición Z/Y hasta dónde hemos instanciado
-    private int ultimoIndice = -1;          // para evitar repetir siempre el mismo prefab
+    private float spawnZ = 0f;
+    private GameObject[] prefabsCarretera;
+    private int ultimoIndice = -1;
+    private bool enTransicion = false;
 
     void Start()
     {
-        // generar los primeros chunks
+        // ðŸ”¹ Empieza solo con carretera de 3 carriles
+        prefabsCarretera = new GameObject[] { carretera3 };
+
         for (int i = 0; i < chunksActivos; i++)
         {
-            if (i == 0)
-                SpawnCarretera(0); // primer tramo siempre igual
-            else
-                SpawnCarretera();
+            SpawnCarretera();
         }
     }
 
     void Update()
     {
-        // cuando el jugador esté cerca del final del último chunk, instanciamos otro
         if (jugador.position.y - 20f > spawnZ - (chunksActivos * largoChunk))
         {
             SpawnCarretera();
@@ -37,26 +43,27 @@ public class CarreteraSpawner : MonoBehaviour
         }
     }
 
-    void SpawnCarretera(int indicePrefab = -1)
+    void SpawnCarretera()
     {
-        GameObject go;
-        if (indicePrefab == -1)
-        {
-            indicePrefab = RandomPrefabIndex();
-        }
+        if (prefabsCarretera == null || prefabsCarretera.Length == 0) return;
 
-        go = Instantiate(prefabsCarretera[indicePrefab],
-            new Vector3(0, spawnZ, 1f), Quaternion.identity);
+        int indice = RandomPrefabIndex();
+        GameObject prefab = prefabsCarretera[indice];
 
+        GameObject go = Instantiate(prefab, new Vector3(0, spawnZ, 1f), Quaternion.identity);
         go.transform.SetParent(transform);
+
         carreteras.Add(go);
         spawnZ += largoChunk;
     }
 
     void BorrarCarretera()
     {
-        Destroy(carreteras[0]);
-        carreteras.RemoveAt(0);
+        if (carreteras.Count > 0)
+        {
+            Destroy(carreteras[0]);
+            carreteras.RemoveAt(0);
+        }
     }
 
     int RandomPrefabIndex()
@@ -72,5 +79,40 @@ public class CarreteraSpawner : MonoBehaviour
 
         ultimoIndice = indice;
         return indice;
+    }
+
+    // ðŸ”¹ Llamado desde DificultadManager
+    public void CambiarTipoCarretera(int numCarriles)
+    {
+        if (enTransicion) return; // evita que se dispare doble
+        enTransicion = true;
+
+        switch (numCarriles)
+        {
+            case 4:
+                // Instancia una vez el prefab de transiciÃ³n cambio34
+                InstanciarTransicion(cambio34, new GameObject[] { carretera4 });
+                break;
+
+            case 5:
+                // Instancia una vez el prefab de transiciÃ³n cambio45
+                InstanciarTransicion(cambio45, new GameObject[] { carretera5 });
+                break;
+        }
+    }
+
+    void InstanciarTransicion(GameObject prefabTransicion, GameObject[] nuevoSet)
+    {
+        // Instanciamos un tramo de cambio especial
+        GameObject trans = Instantiate(prefabTransicion, new Vector3(0, spawnZ, 1f), Quaternion.identity);
+        trans.transform.SetParent(transform);
+        carreteras.Add(trans);
+        spawnZ += largoChunk;
+
+        // DespuÃ©s de la transiciÃ³n, actualizamos el set principal
+        prefabsCarretera = nuevoSet;
+        enTransicion = false;
+
+        Debug.Log($"Cambiado a carretera de {nuevoSet[0].name}");
     }
 }

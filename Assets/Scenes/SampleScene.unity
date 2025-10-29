@@ -363,9 +363,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c91bfecaed73648986702f65b30a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabsCarretera:
-  - {fileID: 5077552311159680493, guid: 0efe9b98c0ebf8d4aa37e14dc21d0460, type: 3}
   jugador: {fileID: 962674952}
+  carretera3: {fileID: 7658971244107727301, guid: c9e4359506809f249905b5407b7c3184, type: 3}
+  cambio34: {fileID: 5914807010072779887, guid: 9dd55f07837a50045b6588699916c52f, type: 3}
+  carretera4: {fileID: 8944111284707838063, guid: f33470f1f47287d47ba7c77ef022cdd6, type: 3}
+  cambio45: {fileID: 5411371007267663006, guid: 129d0fc2bfdc6234181c29de1b0ddb8d, type: 3}
+  carretera5: {fileID: 5518482169266004026, guid: d494e939839e6f8469f2e6cf0575a511, type: 3}
   largoChunk: 20
   chunksActivos: 4
 --- !u!4 &291133483
@@ -798,6 +801,55 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &931080904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 931080906}
+  - component: {fileID: 931080905}
+  m_Layer: 0
+  m_Name: levelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &931080905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931080904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01520bddf616c0241b33f5024d669a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionManager: {fileID: 962674959}
+  carreteraSpawner: {fileID: 291133482}
+  trafficSpawner: {fileID: 407554052}
+  kmCambioA4: 1
+  kmCambioA5: 2
+--- !u!4 &931080906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931080904}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.20751, y: 4.48696, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &962674951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,3 +1203,4 @@ SceneRoots:
   - {fileID: 647215554}
   - {fileID: 121966695}
   - {fileID: 1396711273}
+  - {fileID: 931080906}
