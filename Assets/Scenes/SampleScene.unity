@@ -364,13 +364,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 962674952}
-  carretera3: {fileID: 7658971244107727301, guid: c9e4359506809f249905b5407b7c3184, type: 3}
-  cambio34: {fileID: 5914807010072779887, guid: 9dd55f07837a50045b6588699916c52f, type: 3}
-  carretera4: {fileID: 8944111284707838063, guid: f33470f1f47287d47ba7c77ef022cdd6, type: 3}
-  cambio45: {fileID: 5411371007267663006, guid: 129d0fc2bfdc6234181c29de1b0ddb8d, type: 3}
-  carretera5: {fileID: 5518482169266004026, guid: d494e939839e6f8469f2e6cf0575a511, type: 3}
   largoChunk: 20
   chunksActivos: 4
+  offsetDespawn: 20
 --- !u!4 &291133483
 Transform:
   m_ObjectHideFlags: 0
@@ -600,16 +596,16 @@ MonoBehaviour:
     pools:
     - poolName: carretera3
       prefab: {fileID: 7658971244107727301, guid: c9e4359506809f249905b5407b7c3184, type: 3}
-      initialAmount: 3
-      expandable: 0
+      initialAmount: 5
+      expandable: 1
     - poolName: carretera4
       prefab: {fileID: 8944111284707838063, guid: f33470f1f47287d47ba7c77ef022cdd6, type: 3}
-      initialAmount: 3
-      expandable: 0
+      initialAmount: 5
+      expandable: 1
     - poolName: carretera5
       prefab: {fileID: 5518482169266004026, guid: d494e939839e6f8469f2e6cf0575a511, type: 3}
-      initialAmount: 3
-      expandable: 0
+      initialAmount: 5
+      expandable: 1
     - poolName: cambio34
       prefab: {fileID: 5914807010072779887, guid: 9dd55f07837a50045b6588699916c52f, type: 3}
       initialAmount: 1
