@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   impactPrefab: {fileID: 8525897813156945573, guid: 6897baa5db8036e4a805df4256ed2d59, type: 3}
+  categoryName: canonEnergia
 --- !u!82 &3903920518814669863
 AudioSource:
   m_ObjectHideFlags: 0
@@ -115,7 +116,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6ca828f91c31c5c4283f27308185c151, type: 3}
   m_Resource: {fileID: 8300000, guid: 6ca828f91c31c5c4283f27308185c151, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eba28e60d13adc408f83d57f9d93e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  categoryName: tostadora
 --- !u!82 &-4737632773898201768
 AudioSource:
   m_ObjectHideFlags: 0
@@ -113,7 +114,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
   m_audioClip: {fileID: 8300000, guid: 76f019453a552394f9ad1b4ca891d7ba, type: 3}
   m_Resource: {fileID: 8300000, guid: 76f019453a552394f9ad1b4ca891d7ba, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

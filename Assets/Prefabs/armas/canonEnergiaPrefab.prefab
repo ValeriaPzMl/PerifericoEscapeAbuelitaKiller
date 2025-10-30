@@ -130,7 +130,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2609082165255059290, guid: 6e85a70e02b83a34c9325c2d86f8c801, type: 3}
   firePoint: {fileID: 6876850422709127901}
   damage: 50
-  audioShoot: {fileID: 8300000, guid: 6ca828f91c31c5c4283f27308185c151, type: 3}
+  categoryName: canonEnergia
 --- !u!114 &2680949965592917083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8040ae427d494ba4597f6dcb565f6424, type: 3}
   m_Resource: {fileID: 8300000, guid: 8040ae427d494ba4597f6dcb565f6424, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

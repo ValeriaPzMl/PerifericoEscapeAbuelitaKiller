@@ -130,7 +130,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5341071486657829007, guid: 6b2a3cd437c926b4aacfd87065158d2f, type: 3}
   firePoint: {fileID: 6310709151743831200}
   damage: 50
-  audioShoot: {fileID: 8300000, guid: 2c6bfb1cfb53c6540bb44971869aa0dd, type: 3}
+  categoryName: bombaAtomica
 --- !u!114 &6401570643355103689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7fd5018af5f81f24c8016eb9c96c528d, type: 3}
   m_Resource: {fileID: 8300000, guid: 7fd5018af5f81f24c8016eb9c96c528d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

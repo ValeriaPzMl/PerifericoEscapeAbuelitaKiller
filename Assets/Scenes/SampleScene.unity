@@ -386,6 +386,305 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &299412543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 299412545}
+  - component: {fileID: 299412544}
+  m_Layer: 0
+  m_Name: poolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &299412544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299412543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e742ed62c9e34a843a94661655d69f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  categories:
+  - categoryName: bazooka
+    pools:
+    - poolName: Taker
+      prefab: {fileID: 69142254263917784, guid: 833fbee2a0892944c8b9d37c98eb6e58, type: 3}
+      initialAmount: 2
+      expandable: 1
+    - poolName: Prefab
+      prefab: {fileID: 863489660578085311, guid: e760f678dbef85b4e9f840148343e6e1, type: 3}
+      initialAmount: 3
+      expandable: 1
+    - poolName: projectil
+      prefab: {fileID: 4487278166697662475, guid: aec08059b05cb6e46a715099ea758536, type: 3}
+      initialAmount: 20
+      expandable: 1
+    - poolName: hit
+      prefab: {fileID: 6808771528463703833, guid: bfe1276d7e2e9e047bf2554a60ee3dc0, type: 3}
+      initialAmount: 20
+      expandable: 1
+  - categoryName: bazookaConfetti
+    pools:
+    - poolName: Taker
+      prefab: {fileID: 6127065484054530320, guid: f872ae7f8e6692a4992c2a8b0977d746, type: 3}
+      initialAmount: 2
+      expandable: 1
+    - poolName: Prefab
+      prefab: {fileID: 1346004285935840032, guid: 43a806c9fb310cf4abf0ec3568d12615, type: 3}
+      initialAmount: 3
+      expandable: 1
+    - poolName: proyectil
+      prefab: {fileID: 2255957135745468393, guid: 8b125d68d76940c4885fd1437bbb7196, type: 3}
+      initialAmount: 20
+      expandable: 1
+    - poolName: hit
+      prefab: {fileID: 1945977018723928232, guid: 936b0f451e732c74bb5095927c5eef2c, type: 3}
+      initialAmount: 20
+      expandable: 1
+  - categoryName: bombaAtomica
+    pools:
+    - poolName: Taker
+      prefab: {fileID: 8256387070010004073, guid: 8689866f3e9938544baf9aeabe6a1daf, type: 3}
+      initialAmount: 2
+      expandable: 1
+    - poolName: Prefab
+      prefab: {fileID: 6947746023994091224, guid: 3bd24325235159f4f9c13e95602b700b, type: 3}
+      initialAmount: 3
+      expandable: 1
+    - poolName: proyectil
+      prefab: {fileID: 5341071486657829007, guid: 6b2a3cd437c926b4aacfd87065158d2f, type: 3}
+      initialAmount: 20
+      expandable: 1
+    - poolName: hit
+      prefab: {fileID: 3463323670416255988, guid: bb7419010a8862948bec2a7c59ade923, type: 3}
+      initialAmount: 20
+      expandable: 1
+  - categoryName: canonEnergia
+    pools:
+    - poolName: Taker
+      prefab: {fileID: 5428322904405513206, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
+      initialAmount: 2
+      expandable: 1
+    - poolName: Prefab
+      prefab: {fileID: 1196132982516587911, guid: 60c2196fc2adeb640bcf1d4dbf6ffc61, type: 3}
+      initialAmount: 3
+      expandable: 1
+    - poolName: proyectil
+      prefab: {fileID: 2609082165255059290, guid: 6e85a70e02b83a34c9325c2d86f8c801, type: 3}
+      initialAmount: 20
+      expandable: 1
+    - poolName: hit
+      prefab: {fileID: 8525897813156945573, guid: 6897baa5db8036e4a805df4256ed2d59, type: 3}
+      initialAmount: 20
+      expandable: 1
+  - categoryName: catapultaPina
+    pools:
+    - poolName: Taker
+      prefab: {fileID: 8297107269144443124, guid: effe9f9642e9c524b9f74182d7132b43, type: 3}
+      initialAmount: 2
+      expandable: 1
+    - poolName: Prefab
+      prefab: {fileID: 4169265491784029493, guid: 74bbcc610330d26498970d6fd3c86226, type: 3}
+      initialAmount: 20
+      expandable: 1
+    - poolName: proyectil
+      prefab: {fileID: 3692874640937271480, guid: 08985e3966362bc4fb50d66fe271dce3, type: 3}
+      initialAmount: 20
+      expandable: 1
+    - poolName: hit
+      prefab: {fileID: 6528317772734254651, guid: b7a096b9346c0b646bf3156524e53aa8, type: 3}
+      initialAmount: 20
+      expandable: 1
+  - categoryName: catapultaSandia
+    pools:
+    - poolName: Taker
+      prefab: {fileID: 1665831624114038837, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
+      initialAmount: 2
+      expandable: 1
+    - poolName: Prefab
+      prefab: {fileID: 2675228209271929932, guid: df9d0e4d172292a4d872064043b8d757, type: 3}
+      initialAmount: 3
+      expandable: 1
+    - poolName: proyectil
+      prefab: {fileID: 9073076703782060882, guid: 5cbe8b8bc3a97fe408ac98b9a189e002, type: 3}
+      initialAmount: 20
+      expandable: 1
+    - poolName: hit
+      prefab: {fileID: 93617543692302436, guid: 4131e459ccd220a408f692fc6f286a68, type: 3}
+      initialAmount: 20
+      expandable: 1
+  - categoryName: helado
+    pools:
+    - poolName: Taker
+      prefab: {fileID: 7878168130270108750, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
+      initialAmount: 2
+      expandable: 1
+    - poolName: Prefab
+      prefab: {fileID: 8837359123297162848, guid: b869fcfde7df85544ba701a7dfb57eab, type: 3}
+      initialAmount: 3
+      expandable: 1
+    - poolName: proyectil
+      prefab: {fileID: 1248904355775840863, guid: 106e755ea78706a4abee9243d2b25afb, type: 3}
+      initialAmount: 20
+      expandable: 1
+    - poolName: hit
+      prefab: {fileID: 6373334883446531795, guid: 8413fa05f46ba2046aa8ad2f01dd7e77, type: 3}
+      initialAmount: 20
+      expandable: 1
+  - categoryName: lanzaCamisas
+    pools:
+    - poolName: Taker
+      prefab: {fileID: 533391223424353007, guid: 1214aba5a4811064a961e2f645304ea8, type: 3}
+      initialAmount: 2
+      expandable: 1
+    - poolName: Prefab
+      prefab: {fileID: 2675228209271929932, guid: df9d0e4d172292a4d872064043b8d757, type: 3}
+      initialAmount: 3
+      expandable: 1
+    - poolName: proyectil
+      prefab: {fileID: 4581818003545287965, guid: b46ef975590e08e4ba55b4a4ff24819f, type: 3}
+      initialAmount: 20
+      expandable: 1
+    - poolName: hit
+      prefab: {fileID: 5092407742948559473, guid: ee837113b4a76884c9708ab801f4c6b4, type: 3}
+      initialAmount: 20
+      expandable: 1
+  - categoryName: pistolaClavos
+    pools:
+    - poolName: Taker
+      prefab: {fileID: 8039950026646388973, guid: 40694dd09fffd684ebe7479a2537d82f, type: 3}
+      initialAmount: 2
+      expandable: 1
+    - poolName: Prefab
+      prefab: {fileID: 3604578360241812265, guid: 63d098ac764925c46ae00c49b91ce536, type: 3}
+      initialAmount: 3
+      expandable: 1
+    - poolName: proyectil
+      prefab: {fileID: 2678068443993800193, guid: 1f18c44f11df5154ba92815bfa22977b, type: 3}
+      initialAmount: 20
+      expandable: 1
+    - poolName: hit
+      prefab: {fileID: 918041914856014312, guid: 794e0673de40a404584d1bf14033ce52, type: 3}
+      initialAmount: 20
+      expandable: 1
+  - categoryName: tostadora
+    pools:
+    - poolName: Taker
+      prefab: {fileID: 3809250612926615461, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
+      initialAmount: 2
+      expandable: 1
+    - poolName: Prefab
+      prefab: {fileID: 5639036579459628561, guid: 9b81cae4ee1a167419d6d0a8a0a8d0f0, type: 3}
+      initialAmount: 3
+      expandable: 1
+    - poolName: proyectil
+      prefab: {fileID: 4140316499890769185, guid: 994c3b92c38018e4888d982ea33899cb, type: 3}
+      initialAmount: 20
+      expandable: 1
+    - poolName: hit
+      prefab: {fileID: 3834695970422173501, guid: 50cafe482437aba47bcf56646636a959, type: 3}
+      initialAmount: 20
+      expandable: 1
+  - categoryName: carretera
+    pools:
+    - poolName: carretera3
+      prefab: {fileID: 7658971244107727301, guid: c9e4359506809f249905b5407b7c3184, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: carretera4
+      prefab: {fileID: 8944111284707838063, guid: f33470f1f47287d47ba7c77ef022cdd6, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: carretera5
+      prefab: {fileID: 5518482169266004026, guid: d494e939839e6f8469f2e6cf0575a511, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: cambio34
+      prefab: {fileID: 5914807010072779887, guid: 9dd55f07837a50045b6588699916c52f, type: 3}
+      initialAmount: 1
+      expandable: 0
+    - poolName: cambio45
+      prefab: {fileID: 5411371007267663006, guid: 129d0fc2bfdc6234181c29de1b0ddb8d, type: 3}
+      initialAmount: 1
+      expandable: 0
+  - categoryName: NPCs
+    pools:
+    - poolName: carro01
+      prefab: {fileID: 8292401855080670207, guid: c2b58dfc79c973a43a38bc6621ed986f, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: carro02
+      prefab: {fileID: 6490543011678954416, guid: 06cd44f8d73726541a7e67c74f09fb37, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: carro03
+      prefab: {fileID: 1557657956653931221, guid: 1eb0d12002c2de2479fcf52dbfc9f2f0, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: carro04
+      prefab: {fileID: 2631853818142460832, guid: 19c015bac0b3aa94190b32d1ea298602, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: carro05
+      prefab: {fileID: 4360498192939661016, guid: 70ff5870fd9be7446b2f1f75534fdaa9, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: carro06
+      prefab: {fileID: 4374655275974416673, guid: 233f750eaf21a5d40a610f1917895a25, type: 3}
+      initialAmount: 3
+      expandable: 0
+  - categoryName: enemigos
+    pools:
+    - poolName: enemigo01
+      prefab: {fileID: 8292401855080670207, guid: c2b58dfc79c973a43a38bc6621ed986f, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: enemigo02
+      prefab: {fileID: 6490543011678954416, guid: 06cd44f8d73726541a7e67c74f09fb37, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: enemigo03
+      prefab: {fileID: 1557657956653931221, guid: 1eb0d12002c2de2479fcf52dbfc9f2f0, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: enemigo04
+      prefab: {fileID: 2631853818142460832, guid: 19c015bac0b3aa94190b32d1ea298602, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: enemigo05
+      prefab: {fileID: 4360498192939661016, guid: 70ff5870fd9be7446b2f1f75534fdaa9, type: 3}
+      initialAmount: 3
+      expandable: 0
+    - poolName: enemigo06
+      prefab: {fileID: 4374655275974416673, guid: 233f750eaf21a5d40a610f1917895a25, type: 3}
+      initialAmount: 3
+      expandable: 0
+--- !u!4 &299412545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299412543}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.20751, y: 4.48696, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407554051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,63 +1401,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1396711273
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3809250612926615461, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
-      propertyPath: m_Name
-      value: tostadoraTaker
-      objectReference: {fileID: 0}
-    - target: {fileID: 7592053575901692829, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 7592053575901692829, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7592053575901692829, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7592053575901692829, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7592053575901692829, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7592053575901692829, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7592053575901692829, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7592053575901692829, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7592053575901692829, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7592053575901692829, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4decb26fa50d0cb42821ca85a0a0afa8, type: 3}
 --- !u!1 &1747787735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,6 +1432,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 962674952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1770993683
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5428322904405513206, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
+      propertyPath: m_Name
+      value: canonEnergiaTaker
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1202,5 +1501,6 @@ SceneRoots:
   - {fileID: 1070144129}
   - {fileID: 647215554}
   - {fileID: 121966695}
-  - {fileID: 1396711273}
   - {fileID: 931080906}
+  - {fileID: 299412545}
+  - {fileID: 1770993683}

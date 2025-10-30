@@ -130,7 +130,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4487278166697662475, guid: aec08059b05cb6e46a715099ea758536, type: 3}
   firePoint: {fileID: 4334366436263168807}
   damage: 50
-  audioShoot: {fileID: 8300000, guid: a999185f119e1ce429d2726cce35d8e6, type: 3}
+  categoryName: bazooka
 --- !u!114 &1405448112027431686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7fd5018af5f81f24c8016eb9c96c528d, type: 3}
   m_Resource: {fileID: 8300000, guid: 7fd5018af5f81f24c8016eb9c96c528d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

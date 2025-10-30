@@ -143,7 +143,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4581818003545287965, guid: b46ef975590e08e4ba55b4a4ff24819f, type: 3}
   firePoint: {fileID: 9061703393951367339}
   damage: 50
-  audioShoot: {fileID: 8300000, guid: 7a355e7a2a24e21498ac167ef7f81ead, type: 3}
+  categoryName: lanzaCamisas
 --- !u!82 &-4601549183486761918
 AudioSource:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8040ae427d494ba4597f6dcb565f6424, type: 3}
   m_Resource: {fileID: 8300000, guid: 8040ae427d494ba4597f6dcb565f6424, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

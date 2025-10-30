@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   impactPrefab: {fileID: 6373334883446531795, guid: 8413fa05f46ba2046aa8ad2f01dd7e77, type: 3}
+  categoryName: helado
 --- !u!82 &-671105343366131820
 AudioSource:
   m_ObjectHideFlags: 0
@@ -115,7 +116,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
   m_audioClip: {fileID: 8300000, guid: 63475a80cb8000c4b82af86c70adc40e, type: 3}
   m_Resource: {fileID: 8300000, guid: 63475a80cb8000c4b82af86c70adc40e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

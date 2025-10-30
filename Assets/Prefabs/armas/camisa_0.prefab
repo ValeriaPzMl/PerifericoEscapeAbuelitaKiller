@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   impactPrefab: {fileID: 5092407742948559473, guid: ee837113b4a76884c9708ab801f4c6b4, type: 3}
+  categoryName: lanzaCamisas
 --- !u!82 &-6306701997090078575
 AudioSource:
   m_ObjectHideFlags: 0
@@ -115,7 +116,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7a355e7a2a24e21498ac167ef7f81ead, type: 3}
   m_Resource: {fileID: 8300000, guid: 7a355e7a2a24e21498ac167ef7f81ead, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

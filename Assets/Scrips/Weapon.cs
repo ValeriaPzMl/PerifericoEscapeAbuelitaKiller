@@ -7,6 +7,7 @@ public class WeaponDemo : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform firePoint;
     public int damage = 50;
+    public string categoryName;
 
     private Vector3 targetPos;
 
@@ -24,8 +25,13 @@ public class WeaponDemo : MonoBehaviour
     // Este lo llamas desde el último frame del animador
     public void LaunchProjectile()
     {
-        
-        GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        proj.GetComponent<ProjectileDemo>().Init(targetPos, damage);
+        GameObject proj = PoolManager.Instance.GetFromPool(categoryName, "proyectil");
+        if (proj != null)
+        {
+            proj.transform.position = firePoint.position;
+            proj.transform.rotation = firePoint.rotation;
+            proj.GetComponent<ProjectileDemo>().Init(targetPos, damage);
+        }
+
     }
 }

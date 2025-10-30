@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   impactPrefab: {fileID: 6808771528463703833, guid: bfe1276d7e2e9e047bf2554a60ee3dc0, type: 3}
+  categoryName: bazooka
 --- !u!82 &7589251304673463280
 AudioSource:
   m_ObjectHideFlags: 0
@@ -115,7 +116,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
   m_audioClip: {fileID: 8300000, guid: b92b842b2f5b28a44b60f7bdc9ddf2ca, type: 3}
   m_Resource: {fileID: 8300000, guid: b92b842b2f5b28a44b60f7bdc9ddf2ca, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

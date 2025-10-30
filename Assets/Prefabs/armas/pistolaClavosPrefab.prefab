@@ -130,7 +130,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2678068443993800193, guid: 1f18c44f11df5154ba92815bfa22977b, type: 3}
   firePoint: {fileID: 7944158971157105308}
   damage: 50
-  audioShoot: {fileID: 8300000, guid: 7a355e7a2a24e21498ac167ef7f81ead, type: 3}
+  categoryName: pistolaClavos
 --- !u!114 &8768713896407704254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7fd5018af5f81f24c8016eb9c96c528d, type: 3}
   m_Resource: {fileID: 8300000, guid: 7fd5018af5f81f24c8016eb9c96c528d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 
-public class ProjectileDemo : MonoBehaviour
+public class ProjectileDemo : MonoBehaviour,IPooledObject
 {
     public float speed = 15f;
     private int damage;
     private Vector3 targetPos;
     public GameObject impactPrefab; // sandía aplastada
+    public string categoryName;
+    private AudioSource audio;
 
 
 
@@ -33,8 +35,9 @@ public class ProjectileDemo : MonoBehaviour
 
     void Hit()
     {
-        
-        
+
+        Debug.Log($"Hit() llamado por {gameObject.name}");
+
         // instanciar sandía aplastada en el punto del impacto
         if (impactPrefab != null)
         {
@@ -42,7 +45,13 @@ public class ProjectileDemo : MonoBehaviour
             euler.z += 180f; // Sumar 180 grados al eje Z
             Quaternion rotacion = Quaternion.Euler(euler); // Convertir de nuevo a Quaternion
 
-            GameObject impact = Instantiate(impactPrefab, targetPos, rotacion);
+            //GameObject impact = Instantiate(impactPrefab, targetPos, rotacion);
+            GameObject impact = PoolManager.Instance.GetFromPool(categoryName, "hit");
+            if (impact != null)
+            {
+                impact.transform.position = targetPos;
+                impact.transform.rotation = rotacion;
+            }
 
 
             // revisar si hay algún coche
@@ -68,6 +77,21 @@ public class ProjectileDemo : MonoBehaviour
         }
 
         // destruir proyectil
-        Destroy(gameObject);
+        PoolManager.Instance.ReturnToPool(categoryName, "proyectil", gameObject);
+
+    }
+
+    public void OnSpawn()
+    {
+        if (audio == null)
+            audio = GetComponent<AudioSource>();
+
+        if (audio != null)
+            audio.Play();
+    }
+
+    public void OnDespawn()
+    {
+        
     }
 }

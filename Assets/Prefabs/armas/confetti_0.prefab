@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   impactPrefab: {fileID: 1945977018723928232, guid: 936b0f451e732c74bb5095927c5eef2c, type: 3}
+  categoryName: bazookaConfetti
 --- !u!82 &5637028869983878044
 AudioSource:
   m_ObjectHideFlags: 0
@@ -115,7 +116,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
   m_audioClip: {fileID: 8300000, guid: 70295136f1191174ba7750734a7b1ff1, type: 3}
   m_Resource: {fileID: 8300000, guid: 70295136f1191174ba7750734a7b1ff1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
