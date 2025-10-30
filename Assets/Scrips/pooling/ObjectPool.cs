@@ -43,6 +43,7 @@ public class ObjectPool
         {
             GameObject obj = GameObject.Instantiate(prefab, parent);
             obj.SetActive(true);
+            Debug.Log($"expandido {poolName}");
             IPooledObject pooledObj = obj.GetComponent<IPooledObject>();
             if (pooledObj != null)
             {

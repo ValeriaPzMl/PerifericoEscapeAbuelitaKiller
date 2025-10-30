@@ -4,115 +4,116 @@ using System.Collections.Generic;
 public class CarreteraSpawner : MonoBehaviour
 {
     [Header("Referencias")]
-    public Transform jugador; // referencia al camión
+    public Transform jugador; // referencia al camión o jugador
 
-    [Header("Tipos específicos")]
-    public GameObject carretera3;
-    public GameObject cambio34;
-    public GameObject carretera4;
-    public GameObject cambio45;
-    public GameObject carretera5;
+    [Header("Configuración general")]
+    public float largoChunk = 29f;
+    public int chunksActivos = 4;
+    public float offsetDespawn = 25f; // distancia tras el jugador para borrar
 
-    [Header("Configuración")]
-    public float largoChunk = 29f; // largo de cada tramo de carretera
-    public int chunksActivos = 4;  // cuántos mantenemos en escena
-
-    private List<GameObject> carreteras = new List<GameObject>();
+    [Header("Estado actual")]
+    private readonly List<GameObject> carreteras = new();
     private float spawnZ = 0f;
-    private GameObject[] prefabsCarretera;
-    private int ultimoIndice = -1;
+    private int cantCarriles = 3;
     private bool enTransicion = false;
 
     void Start()
     {
-        // 🔹 Empieza solo con carretera de 3 carriles
-        prefabsCarretera = new GameObject[] { carretera3 };
-
+        // 🔹 Spawnea tramos iniciales de carretera 3
         for (int i = 0; i < chunksActivos; i++)
         {
-            SpawnCarretera();
+            SpawnCarretera($"carretera{cantCarriles}");
         }
     }
 
     void Update()
     {
-        if (jugador.position.y - 20f > spawnZ - (chunksActivos * largoChunk))
+        // 🔹 Si el jugador avanza, spawneamos nueva carretera y borramos la más vieja
+        if (jugador.position.y > spawnZ - (chunksActivos * largoChunk))
         {
-            SpawnCarretera();
+            SpawnCarretera($"carretera{cantCarriles}");
             BorrarCarretera();
         }
     }
 
-    void SpawnCarretera()
+    // =============================
+    //  🟢 SPAWN
+    // =============================
+    private void SpawnCarretera(string nombre)
     {
-        if (prefabsCarretera == null || prefabsCarretera.Length == 0) return;
+        GameObject go = PoolManager.Instance.GetFromPool("carretera", nombre);
+        if (go == null)
+        {
+            Debug.LogError($"❌ No se encontró el prefab '{nombre}' en el pool 'carretera'");
+            return;
+        }
 
-        int indice = RandomPrefabIndex();
-        GameObject prefab = prefabsCarretera[indice];
-
-        GameObject go = Instantiate(prefab, new Vector3(0, spawnZ, 1f), Quaternion.identity);
+        go.transform.position = new Vector3(0, spawnZ, 1f);
+        go.transform.rotation = Quaternion.identity;
         go.transform.SetParent(transform);
-
         carreteras.Add(go);
+
         spawnZ += largoChunk;
     }
 
-    void BorrarCarretera()
+    // =============================
+    //  🔴 DESPAWN
+    // =============================
+    private void BorrarCarretera()
     {
-        if (carreteras.Count > 0)
+        if (carreteras.Count == 0) return;
+
+        GameObject primero = carreteras[0];
+
+        // Se borra solo si ya pasó suficientemente atrás del jugador
+        if (jugador.position.y - offsetDespawn > primero.transform.position.y)
         {
-            Destroy(carreteras[0]);
+            string nombrePool = ObtenerNombreBase(primero.name);
+            PoolManager.Instance.ReturnToPool("carretera", nombrePool, primero);
             carreteras.RemoveAt(0);
+            Debug.Log($"♻️ Devuelto al pool: {nombrePool}");
         }
     }
 
-    int RandomPrefabIndex()
+    // 🔹 Ayuda para quitar "(Clone)" o sufijos de Unity
+    private string ObtenerNombreBase(string name)
     {
-        if (prefabsCarretera.Length <= 1)
-            return 0;
-
-        int indice;
-        do
-        {
-            indice = Random.Range(0, prefabsCarretera.Length);
-        } while (indice == ultimoIndice);
-
-        ultimoIndice = indice;
-        return indice;
+        string limpio = name.Replace("(Clone)", "").Trim();
+        // Si el objeto tiene numeraciones tipo carretera3_0 etc
+        int index = limpio.IndexOf("_");
+        if (index > 0) limpio = limpio.Substring(0, index);
+        return limpio;
     }
 
-    // 🔹 Llamado desde DificultadManager
-    public void CambiarTipoCarretera(int numCarriles)
+    // =============================
+    //  🔁 CAMBIO DE TIPO DE CARRETERA
+    // =============================
+    public void CambiarTipoCarretera(int nuevoNumCarriles)
     {
-        if (enTransicion) return; // evita que se dispare doble
+        if (enTransicion || nuevoNumCarriles == cantCarriles) return;
         enTransicion = true;
 
-        switch (numCarriles)
+        string nombreCambio = $"cambio{cantCarriles}{nuevoNumCarriles}";
+        string nombreNueva = $"carretera{nuevoNumCarriles}";
+
+        // Instanciamos transición y luego cambiamos
+        GameObject trans = PoolManager.Instance.GetFromPool("carretera", nombreCambio);
+        if (trans != null)
         {
-            case 4:
-                // Instancia una vez el prefab de transición cambio34
-                InstanciarTransicion(cambio34, new GameObject[] { carretera4 });
-                break;
-
-            case 5:
-                // Instancia una vez el prefab de transición cambio45
-                InstanciarTransicion(cambio45, new GameObject[] { carretera5 });
-                break;
+            trans.transform.position = new Vector3(0, spawnZ, 1f);
+            trans.transform.rotation = Quaternion.identity;
+            trans.transform.SetParent(transform);
+            carreteras.Add(trans);
+            spawnZ += largoChunk;
         }
-    }
+        else
+        {
+            Debug.LogWarning($"⚠️ No se encontró el prefab de transición {nombreCambio}");
+        }
 
-    void InstanciarTransicion(GameObject prefabTransicion, GameObject[] nuevoSet)
-    {
-        // Instanciamos un tramo de cambio especial
-        GameObject trans = Instantiate(prefabTransicion, new Vector3(0, spawnZ, 1f), Quaternion.identity);
-        trans.transform.SetParent(transform);
-        carreteras.Add(trans);
-        spawnZ += largoChunk;
-
-        // Después de la transición, actualizamos el set principal
-        prefabsCarretera = nuevoSet;
+        cantCarriles = nuevoNumCarriles;
         enTransicion = false;
 
-        Debug.Log($"Cambiado a carretera de {nuevoSet[0].name}");
+        Debug.Log($"✅ Cambio completado: ahora {cantCarriles} carriles");
     }
 }
