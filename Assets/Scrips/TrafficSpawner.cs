@@ -12,10 +12,10 @@ public class TrafficSpawner : MonoBehaviour
     public LayerMask trafficLayer;     // capa de tráfico
 
     [Header("Carriles")]
-    public float[] posicionesCarriles; // posiciones fijas en X (ej: -4, -2, 0, 2, 4)
+    public float[] posicionesCarriles; 
 
     [Header("Densidad global")]
-    public int maxCoches = 15; // máximo en pantalla
+    public int maxCoches = 30; // máximo en pantalla
 
     private float timer;
 
@@ -40,8 +40,12 @@ public class TrafficSpawner : MonoBehaviour
         float x = posicionesCarriles[Random.Range(0, posicionesCarriles.Length)];
         Vector3 pos = new Vector3(x, camion.position.y + distanciaSpawn, 0);
 
+        if (pos.y <= camion.position.y + 2f) return;
+
         // 3. Elegir prefab
-        GameObject prefab = vehiculos[Random.Range(0, vehiculos.Length)];
+
+        int numeroRandom = Random.Range(0, vehiculos.Length);
+        GameObject prefab = PoolManager.Instance.GetFromPool("NPCs", $"carro{numeroRandom+1}");
         TrafficCar carData = prefab.GetComponent<TrafficCar>();
         if (carData == null)
         {
@@ -60,8 +64,12 @@ public class TrafficSpawner : MonoBehaviour
         if (check != null) return; // ya hay un carro muy cerca
 
         // 5. Instanciar
-        GameObject nuevoCarro = Instantiate(prefab, pos, Quaternion.identity);
-        nuevoCarro.tag = "Traffic"; // aseguramos el tag
+        if (prefab != null)
+        {
+            prefab.transform.position = pos;
+            prefab.transform.rotation = Quaternion.identity;
+            prefab.tag = "Traffic"; // aseguramos el tag
+        }
     }
 
     public void ActualizarCarriles(int numCarriles)

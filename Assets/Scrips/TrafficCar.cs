@@ -1,15 +1,19 @@
+﻿using NUnit.Framework.Constraints;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class TrafficCar : MonoBehaviour
+public class TrafficCar : MonoBehaviour, IPooledObject
 {
-    private float distanciaMaxima = 80f; // Distancia m�xima para destruirse
+    private float distanciaMaxima = 80f; // Distancia máxima para destruirse
     private Transform player;
     public float velocidad = 5f;
     public float tiempoVida = 15f; // para destruirlo si se pasa
-    public int health;
+    public int vidaInicial;
+    private int health;
 
-    [Header("�rea de detecci�n del carro")]
+    [Header("Área de detección del carro")]
     public float anchoDeteccion;
     public float altoDeteccion;
     void Start()
@@ -33,9 +37,30 @@ public class TrafficCar : MonoBehaviour
 
         if (distancia >= distanciaMaxima)
         {
-            Debug.Log("Objeto destruido por alejarse demasiado del jugador.");
-            Destroy(gameObject);
+
+            DevolverAlPool();
         }
+    }
+    private string ObtenerNombreBase(string name)
+    {
+        string limpio = name.Replace("(Clone)", "").Trim();
+        // Si el objeto tiene numeraciones tipo carretera3_0 etc
+        int index = limpio.IndexOf("_");
+        if (index > 0) limpio = limpio.Substring(0, index);
+        return limpio;
+    }
+    public void TakeDamage(int dmg)
+    {
+        health -= dmg;
+        if (health <= 0)
+            DevolverAlPool();
+    }
+
+    private void DevolverAlPool()
+    {
+        string nombrePool = ObtenerNombreBase(gameObject.name);
+        PoolManager.Instance.ReturnToPool("NPCs", nombrePool, gameObject);
+        Debug.Log($"♻️ Devuelto al pool: {nombrePool}");
     }
     public Vector2 GetDetectionSize()
     {
@@ -47,12 +72,49 @@ public class TrafficCar : MonoBehaviour
         Gizmos.color = Color.cyan; // azulito para distinguirlos
         Gizmos.DrawWireCube(transform.position, new Vector3(anchoDeteccion, altoDeteccion, 0));
     }
-    public void TakeDamage(int dmg)
+
+    public void OnSpawn()
     {
-        health -= dmg;
-        if (health <= 0)
+        health = vidaInicial;
+    }
+
+    public void OnDespawn()
+    {
+        
+        // 🔹 Copiar referencias a los hijos
+        Debug.Log($"transform.childCount = {transform.childCount}");
+        List<GameObject> hijos = new List<GameObject>();
+        foreach (Transform child in transform)
         {
-            Destroy(gameObject); // m�s adelante explosi�n o animaci�n
+            hijos.Add(child.gameObject);
+            Debug.Log("-> child directo: " + child.name);
+        }
+        Debug.Log($"hijos detectados {hijos.Count}");
+        // 🔹 Desconectarlos primero (esto evita el bug del hijo que queda)
+        transform.DetachChildren();
+
+        // 🔹 Ahora despawnear/limpiar cada uno
+        foreach (GameObject childGO in hijos)
+        {
+
+            Hiteados hitCS = childGO.GetComponent<Hiteados>();
+
+            if (hitCS != null)
+            {
+                string cat = hitCS.categoryName;
+                PoolManager.Instance.ReturnToPool(cat, "hit", childGO);
+                Debug.Log($"♻️ Devuelto al pool: {childGO.name} → {cat}/hit");
+
+            }
+            
         }
     }
+    IEnumerator Esperar()
+    {
+        
+        yield return new WaitForSeconds(10f);  // espera 3 segundos
+        
+    }
+
+
 }

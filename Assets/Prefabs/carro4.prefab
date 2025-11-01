@@ -149,6 +149,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 5
   tiempoVida: 15
-  health: 600
+  vidaInicial: 500
   anchoDeteccion: 3
   altoDeteccion: 15

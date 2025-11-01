@@ -61,16 +61,18 @@ public class ProjectileDemo : MonoBehaviour,IPooledObject
                 if (hit.CompareTag("Traffic"))
                 {
                     // aplicar daño
-                    hit.GetComponent<TrafficCar>().TakeDamage(damage);
+                    
                     // hacer que la sandía sea hija del coche
                     Vector3 localPoint = hit.transform.InverseTransformPoint(targetPos);
                     impact.transform.SetParent(hit.transform);
                     impact.transform.localPosition = localPoint;
                     SpriteRenderer sr = impact.GetComponent<SpriteRenderer>();
+                    
                     if (sr != null)
                     {
                         sr.sortingLayerName = "Proyectiles";
                     }
+                    hit.GetComponent<TrafficCar>().TakeDamage(damage);
                     break; // solo uno
                 }
             }

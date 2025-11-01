@@ -616,30 +616,30 @@ MonoBehaviour:
       expandable: 0
   - categoryName: NPCs
     pools:
-    - poolName: carro01
+    - poolName: carro1
       prefab: {fileID: 8292401855080670207, guid: c2b58dfc79c973a43a38bc6621ed986f, type: 3}
       initialAmount: 3
-      expandable: 0
-    - poolName: carro02
+      expandable: 1
+    - poolName: carro2
       prefab: {fileID: 6490543011678954416, guid: 06cd44f8d73726541a7e67c74f09fb37, type: 3}
       initialAmount: 3
-      expandable: 0
-    - poolName: carro03
+      expandable: 1
+    - poolName: carro3
       prefab: {fileID: 1557657956653931221, guid: 1eb0d12002c2de2479fcf52dbfc9f2f0, type: 3}
       initialAmount: 3
-      expandable: 0
-    - poolName: carro04
+      expandable: 1
+    - poolName: carro4
       prefab: {fileID: 2631853818142460832, guid: 19c015bac0b3aa94190b32d1ea298602, type: 3}
       initialAmount: 3
-      expandable: 0
-    - poolName: carro05
+      expandable: 1
+    - poolName: carro5
       prefab: {fileID: 4360498192939661016, guid: 70ff5870fd9be7446b2f1f75534fdaa9, type: 3}
       initialAmount: 3
-      expandable: 0
-    - poolName: carro06
+      expandable: 1
+    - poolName: carro6
       prefab: {fileID: 4374655275974416673, guid: 233f750eaf21a5d40a610f1917895a25, type: 3}
       initialAmount: 3
-      expandable: 0
+      expandable: 1
   - categoryName: enemigos
     pools:
     - poolName: enemigo01

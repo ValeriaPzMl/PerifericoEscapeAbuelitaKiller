@@ -1,21 +1,38 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerWeapons : MonoBehaviour
 {
-    public Transform weaponHolder; // un empty en el cami�n donde se montan armas
+    [Header("Referencias")]
+    public Transform weaponHolder; // Donde se coloca el arma
+
     private GameObject currentWeapon;
+    private string currentCategory;
 
-    public void EquipWeapon(GameObject weaponPrefab)
+    public void EquipWeapon(GameObject weaponPrefab, string category)
     {
-        // Si ya hay un arma, la borramos
-        if (currentWeapon != null) Destroy(currentWeapon);
+        // 🔹 Si ya hay un arma equipada, la devolvemos a su pool
+        if (currentWeapon != null)
+        {
+            PoolManager.Instance.ReturnToPool(currentCategory, "Prefab", currentWeapon);
+            currentWeapon = null;
+        }
 
-        // Instanciamos la nueva
-        currentWeapon = Instantiate(weaponPrefab, weaponHolder);
+        // 🔹 Guardamos la nueva categoría
+        currentCategory = category;
 
-        // Aseguramos que quede alineada al holder
+        // 🔹 Obtenemos el arma del pool correcto
+        currentWeapon = PoolManager.Instance.GetFromPool(category, "Prefab");
+        if (currentWeapon == null)
+        {
+            Debug.LogError($"❌ No se pudo obtener arma del pool {category}/Prefab");
+            return;
+        }
+
+        // 🔹 Colocamos el arma en el holder
+        currentWeapon.transform.SetParent(weaponHolder,false);
         currentWeapon.transform.localPosition = Vector3.zero;
-        currentWeapon.transform.localRotation = Quaternion.Euler(0f,0f,0f);
-        Debug.Log("Equipada arma: " + weaponPrefab.name);
+        currentWeapon.transform.localRotation = Quaternion.identity;
+
+        Debug.Log($"✅ Arma equipada desde pool: {category}/Prefab");
     }
 }

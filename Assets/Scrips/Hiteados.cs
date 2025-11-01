@@ -25,7 +25,7 @@ public class Hiteados : MonoBehaviour, IPooledObject
         if (player == null) return;
 
         float distancia = Vector3.Distance(transform.position, player.position);
-        if (distancia >= distanciaMaxima)
+        if (transform.parent == null && distancia >= distanciaMaxima)
         {
             Debug.Log("Objeto destruido por alejarse demasiado del jugador.");
             PoolManager.Instance.ReturnToPool(categoryName, "hit", gameObject);
@@ -42,13 +42,13 @@ public class Hiteados : MonoBehaviour, IPooledObject
             audio.Play();
     }
 
+
     public void OnDespawn()
     {
-        //transform.parent = null;
+        // Limpieza visual
+        transform.SetParent(null);
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr != null)
-        {
             sr.sortingLayerName = "Default";
-        }
     }
 }
