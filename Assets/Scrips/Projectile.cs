@@ -8,7 +8,7 @@ public class ProjectileDemo : MonoBehaviour,IPooledObject
     private Vector3 targetPos;
     public GameObject impactPrefab; // sandía aplastada
     public string categoryName;
-    private AudioSource audio;
+    private AudioSource audiot;
 
 
 
@@ -85,11 +85,11 @@ public class ProjectileDemo : MonoBehaviour,IPooledObject
 
     public void OnSpawn()
     {
-        if (audio == null)
-            audio = GetComponent<AudioSource>();
+        if (audiot == null)
+            audiot = GetComponent<AudioSource>();
 
-        if (audio != null)
-            audio.Play();
+        if (audiot != null)
+            audiot.Play();
     }
 
     public void OnDespawn()

@@ -12,6 +12,8 @@ public class PlayerPhysicsController : MonoBehaviour
     private Rigidbody2D rb;
     private float velocidadActual = 0f;
     private float anguloVolante = 0f;
+    private float vida = 400;
+    private int carrosMuertos;
 
     void Awake()
     {
@@ -65,4 +67,13 @@ public class PlayerPhysicsController : MonoBehaviour
             // Ej: GameManager.Instance.LosePassenger();
         }
     }
+    public void takeDamage(int damage)
+    {
+        vida += damage;
+    }
+    public int getLife()
+    {
+        return (int)vida/10;
+    }
+    
 }

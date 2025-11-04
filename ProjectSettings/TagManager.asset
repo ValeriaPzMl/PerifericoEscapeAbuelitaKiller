@@ -45,11 +45,11 @@ TagManager:
   - name: Carros
     uniqueID: 2861217411
     locked: 0
-  - name: Armas
-    uniqueID: 2670539031
-    locked: 0
   - name: Proyectiles
     uniqueID: 1797893635
+    locked: 0
+  - name: Armas
+    uniqueID: 2670539031
     locked: 0
   m_RenderingLayers:
   - Default

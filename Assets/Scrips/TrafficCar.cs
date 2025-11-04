@@ -1,120 +1,211 @@
-﻿using NUnit.Framework.Constraints;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using TMPro; // Asegúrate de tener TextMeshPro importado
+using UnityEngine.SceneManagement;
+
 
 public class TrafficCar : MonoBehaviour, IPooledObject
 {
-    private float distanciaMaxima = 80f; // Distancia máxima para destruirse
     private Transform player;
+    private Rigidbody2D rb;
+    private Animator explotar;
+
+    [Header("Parámetros generales")]
     public float velocidad = 5f;
-    public float tiempoVida = 15f; // para destruirlo si se pasa
-    public int vidaInicial;
+    private float velocidadActual;
+    public int vidaInicial = 100;
     private int health;
+    public int distanciaMaxima = 50;
+
+    [Header("Sensores de tráfico")]
+    public float distanciaDeteccion = 3f;   // distancia para detectar autos al frente
+    public LayerMask trafficLayer;
+
+    private bool estaChocando = false;
 
     [Header("Área de detección del carro")]
-    public float anchoDeteccion;
-    public float altoDeteccion;
+    public float anchoDeteccion = 1f;
+    public float altoDeteccion = 2f;
+
+    public DisplayData matador;
+
+
     void Start()
     {
-        // Busca al objeto con tag "Player"
-        GameObject jugador = GameObject.FindGameObjectWithTag("Player");
-        if (jugador != null)
-        {
-            player = jugador.transform;
-        }
+        rb = GetComponent<Rigidbody2D>();
+        velocidadActual = velocidad;
+        health = vidaInicial;
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        //protaCS = player.GetComponent<PlayerPhysicsController>();
+
     }
+
     void Update()
     {
-        // Si prefieres que se muevan hacia abajo:
-        transform.Translate(Vector3.up * velocidad * Time.deltaTime);
+        // 🔹 Raycast para detectar carros enfrente
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position,
+            Vector2.up,
+            distanciaDeteccion,
+            trafficLayer
+        );
 
-        if (player == null) return;
-
-        // Calcula la distancia entre este objeto y el jugador
-        float distancia = Vector3.Distance(transform.position, player.position);
-
-        if (distancia >= distanciaMaxima)
+        if (hit.collider != null)
         {
+            TrafficCar otroCarro = hit.collider.GetComponent<TrafficCar>();
+            if (otroCarro != null)
+            {
+                // Si el de enfrente va más lento, igualar velocidad
+                if (otroCarro.velocidadActual < velocidadActual)
+                {
+                    velocidadActual = otroCarro.velocidadActual * 0.9f;
+                }
+            }
+        }
+        else
+        {
+            // Nadie enfrente → vuelve a su velocidad normal
+            if (!estaChocando)
+                velocidadActual =  velocidad;
+        }
 
-            DevolverAlPool();
+        // 🔹 Movimiento hacia adelante
+        Vector2 nuevaPos = rb.position + Vector2.up * velocidadActual * Time.fixedDeltaTime;
+        rb.MovePosition(nuevaPos);
+
+        // 🔹 Revisa si se alejó demasiado del jugador
+        if (player != null)
+        {
+            float distancia = Vector3.Distance(transform.position, player.position);
+            if (distancia >= distanciaMaxima)
+            {
+                quitarHits();
+                DevolverAlPool();
+            }
         }
     }
-    private string ObtenerNombreBase(string name)
+
+    // 🔹 Funciones de colisión
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        string limpio = name.Replace("(Clone)", "").Trim();
-        // Si el objeto tiene numeraciones tipo carretera3_0 etc
-        int index = limpio.IndexOf("_");
-        if (index > 0) limpio = limpio.Substring(0, index);
-        return limpio;
-    }
-    public void TakeDamage(int dmg)
-    {
-        health -= dmg;
-        if (health <= 0)
-            DevolverAlPool();
+        TrafficCar otroCarro = collision.gameObject.GetComponent<TrafficCar>();
+        if (otroCarro != null)
+        {
+            // Si choca con otro auto, desacelera un poco
+            velocidadActual = otroCarro.velocidadActual * 0.8f;
+            estaChocando = true;
+        }
+        else
+        {
+            // Si choca con algo que no es auto (jugador, obstáculo, etc.)
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            velocidadActual = 0f;
+        }
     }
 
-    private void DevolverAlPool()
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        string nombrePool = ObtenerNombreBase(gameObject.name);
-        PoolManager.Instance.ReturnToPool("NPCs", nombrePool, gameObject);
-        Debug.Log($"♻️ Devuelto al pool: {nombrePool}");
-    }
-    public Vector2 GetDetectionSize()
-    {
-        return new Vector2(anchoDeteccion, altoDeteccion);
+        estaChocando = false;
+        //velocidadActual = velocidad;
+        // Al dejar de chocar, libera movimiento lateral otra vez
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
+    // 🔹 Gizmos para depuración
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.cyan; // azulito para distinguirlos
+        Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position, new Vector3(anchoDeteccion, altoDeteccion, 0));
+
+        Gizmos.color = Physics2D.Raycast(transform.position, Vector2.up, distanciaDeteccion, trafficLayer)
+                ? Color.green
+                : Color.red; Vector3 origen = transform.position;
+        Vector3 direccion = Vector3.up * distanciaDeteccion;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.up * distanciaDeteccion);
+        Gizmos.DrawSphere(origen + direccion, 0.1f);
     }
 
-    public void OnSpawn()
+    // 🔹 Pooling y limpieza
+    private void quitarHits()
     {
-        health = vidaInicial;
-    }
-
-    public void OnDespawn()
-    {
-        
-        // 🔹 Copiar referencias a los hijos
-        Debug.Log($"transform.childCount = {transform.childCount}");
         List<GameObject> hijos = new List<GameObject>();
         foreach (Transform child in transform)
-        {
             hijos.Add(child.gameObject);
-            Debug.Log("-> child directo: " + child.name);
-        }
-        Debug.Log($"hijos detectados {hijos.Count}");
-        // 🔹 Desconectarlos primero (esto evita el bug del hijo que queda)
+
         transform.DetachChildren();
 
-        // 🔹 Ahora despawnear/limpiar cada uno
         foreach (GameObject childGO in hijos)
         {
-
             Hiteados hitCS = childGO.GetComponent<Hiteados>();
-
             if (hitCS != null)
             {
                 string cat = hitCS.categoryName;
                 PoolManager.Instance.ReturnToPool(cat, "hit", childGO);
                 Debug.Log($"♻️ Devuelto al pool: {childGO.name} → {cat}/hit");
-
             }
-            
         }
     }
-    IEnumerator Esperar()
+
+    private string ObtenerNombreBase(string name)
     {
-        
-        yield return new WaitForSeconds(10f);  // espera 3 segundos
-        
+        string limpio = name.Replace("(Clone)", "").Trim();
+        int index = limpio.IndexOf("_");
+        if (index > 0) limpio = limpio.Substring(0, index);
+        return limpio;
     }
 
+    public void DevolverAlPool()
+    {
+        string nombrePool = ObtenerNombreBase(gameObject.name);
+        PoolManager.Instance.ReturnToPool("NPCs", nombrePool, gameObject);
+        Debug.Log($"♻️ Devuelto al pool: {nombrePool}");
+    }
 
+    public void TakeDamage(int dmg)
+    {
+        health -= dmg;
+        if (health <= 0)
+            muerte();
+    }
+
+    public void muerte()
+    {
+        quitarHits();
+        matador.CarroMuerto();
+        explotar.SetTrigger("explosion");
+    }
+
+    public void OnSpawn()
+    {
+        if (matador == null)
+            matador = FindFirstObjectByType<DisplayData>();
+
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
+
+        health = vidaInicial;
+        velocidadActual = velocidad;
+
+        if (explotar == null)
+            explotar = GetComponent<Animator>();
+
+        explotar.Rebind();
+        explotar.Update(0f);
+    }
+
+    public void OnDespawn()
+    {
+        if (explotar != null)
+        {
+            explotar.Rebind();
+            explotar.Update(0f);
+        }
+    }
+    public Vector2 GetDetectionSize()
+    {
+        return new Vector2(anchoDeteccion, altoDeteccion);
+    }
 }

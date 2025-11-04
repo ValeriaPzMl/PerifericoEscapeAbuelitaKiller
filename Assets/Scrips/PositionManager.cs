@@ -16,4 +16,5 @@ public class PositionManager : MonoBehaviour
         // Calculamos la diferencia actual
         differenceX = (transform.position.y - initialy)/1000;
     }
+    
 }

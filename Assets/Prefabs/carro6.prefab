@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7659576908415431588}
   - component: {fileID: 483195302801872125}
   - component: {fileID: 6063031834160103847}
+  - component: {fileID: -2650398391794275435}
+  - component: {fileID: -3323864362218376049}
   m_Layer: 3
   m_Name: carro6
   m_TagString: Traffic
@@ -101,10 +103,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98ecda4e617bb4540b16cc710a413255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 5
-  tiempoVida: 15
+  velocidad: 7
   vidaInicial: 400
-  anchoDeteccion: 2
+  distanciaMaxima: 50
+  distanciaDeteccion: 6
+  trafficLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  anchoDeteccion: 3
   altoDeteccion: 7.6
 --- !u!61 &6063031834160103847
 BoxCollider2D:
@@ -140,7 +146,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0013746023, y: -0.0041240156}
+  m_Offset: {x: -0.0013746023, y: 0.0330292}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -150,5 +156,54 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5567926, y: 1.481267}
+  m_Size: {x: 0.5567926, y: 1.584007}
   m_EdgeRadius: 0
+--- !u!95 &-2650398391794275435
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4374655275974416673}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 77cd9ade39a2b18499ad612b8cd50c7c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &-3323864362218376049
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4374655275974416673}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4

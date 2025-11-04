@@ -1,21 +1,23 @@
+ï»¿using System.Linq;
 using UnityEngine;
 
 public class TrafficSpawner : MonoBehaviour
 {
     [Header("Prefabs")]
     public GameObject[] vehiculos; // coches posibles
-    public Transform camion;       // referencia al camión
+    public Transform camion;       // referencia al camiÃ³n
 
     [Header("Spawn config")]
-    private float distanciaSpawn = 20f; // qué tan lejos del camión aparecen
-    public float tiempoSpawn = 1.5f;   // cada cuánto intenta spawnear
-    public LayerMask trafficLayer;     // capa de tráfico
+    private float distanciaSpawn = 20f; // quÃ© tan lejos del camiÃ³n aparecen
+    public float tiempoSpawn = 0.5f;   // cada cuÃ¡nto intenta spawnear
+    public LayerMask trafficLayer;     // capa de trÃ¡fico
+    public float zonaSegura = 15f;
 
     [Header("Carriles")]
     public float[] posicionesCarriles; 
 
     [Header("Densidad global")]
-    public int maxCoches = 30; // máximo en pantalla
+    public int maxCoches = 30; // mÃ¡ximo en pantalla
 
     private float timer;
 
@@ -31,37 +33,42 @@ public class TrafficSpawner : MonoBehaviour
 
     void TrySpawnVehiculo()
     {
-        // 1. Revisar densidad global
         int cochesActuales = GameObject.FindGameObjectsWithTag("Traffic").Length;
         if (cochesActuales >= maxCoches) return;
 
-        // 2. Elegir carril aleatorio
         if (posicionesCarriles.Length == 0 || vehiculos.Length == 0) return;
+
+        // ðŸ“ Buscar el auto mÃ¡s lejano hacia adelante
+        float maxY = camion.position.y;
+        var traficos = GameObject.FindGameObjectsWithTag("Traffic");
+        if (traficos.Length > 0)
+            maxY = traficos.Max(t => t.transform.position.y);
+
+        // ðŸ§® Punto base del spawn: el mÃ¡s lejano o la distancia fija si no hay autos
+        float spawnY = Mathf.Max(maxY + Random.Range(8f, 15f), camion.position.y + zonaSegura);
+
+        // ðŸš— Carril aleatorio
         float x = posicionesCarriles[Random.Range(0, posicionesCarriles.Length)];
-        Vector3 pos = new Vector3(x, camion.position.y + distanciaSpawn, 0);
+        Vector3 pos = new Vector3(x, spawnY, 0);
 
-        if (pos.y <= camion.position.y + 2f) return;
-
-        // 3. Elegir prefab
-
+        // ðŸ§± Verificar espacio libre con OverlapBox
         int numeroRandom = Random.Range(0, vehiculos.Length);
-        GameObject prefab = PoolManager.Instance.GetFromPool("NPCs", $"carro{numeroRandom+1}");
+        GameObject prefab = PoolManager.Instance.GetFromPool("NPCs", $"carro{numeroRandom + 1}");
+        if (prefab == null) return;
+
         TrafficCar carData = prefab.GetComponent<TrafficCar>();
         if (carData == null)
         {
-            Debug.LogWarning("El prefab " + prefab.name + " no tiene el script TrafficCar");
+            Debug.LogWarning($"El prefab {prefab.name} no tiene TrafficCar");
             return;
         }
 
-        // 4. Revisar espacio libre con OverlapBox usando el tamaño del prefab
         Vector2 detectionSize = carData.GetDetectionSize();
-        Collider2D check = Physics2D.OverlapBox(
-            pos,
-            detectionSize,
-            0f,
-            trafficLayer
-        );
-        if (check != null) return; // ya hay un carro muy cerca
+        Collider2D check = Physics2D.OverlapBox(pos, detectionSize, 0f, trafficLayer);
+
+        if (check != null) {
+            PoolManager.Instance.ReturnToPool("NPCs", $"carro{numeroRandom + 1}", prefab);
+            return; }// ya hay un carro muy cerca
 
         // 5. Instanciar
         if (prefab != null)
@@ -69,6 +76,7 @@ public class TrafficSpawner : MonoBehaviour
             prefab.transform.position = pos;
             prefab.transform.rotation = Quaternion.identity;
             prefab.tag = "Traffic"; // aseguramos el tag
+
         }
     }
 
