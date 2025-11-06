@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2109629886348150218}
   m_Layer: 0
   m_Name: lim
-  m_TagString: Untagged
+  m_TagString: limites
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 2105738657322000559}
   m_Layer: 0
   m_Name: lim2
-  m_TagString: Untagged
+  m_TagString: limites
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

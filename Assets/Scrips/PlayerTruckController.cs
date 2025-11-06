@@ -1,18 +1,19 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerPhysicsController : MonoBehaviour
 {
     private float aceleracion = 2f;
-    private float freno = 3f;
-    private float velMax = 25f;
+    private float freno = 4f;
+    private float velMax = 15f;
     private float anguloMaxLlantas = 5f;
     private float distanciaEjes = 5f;
 
     private Rigidbody2D rb;
     private float velocidadActual = 0f;
     private float anguloVolante = 0f;
-    private float vida = 400;
+    private float vida = 800;
     private int carrosMuertos;
 
     void Awake()
@@ -62,18 +63,26 @@ public class PlayerPhysicsController : MonoBehaviour
     {
         if (col.collider.CompareTag("Traffic"))
         {
-            Debug.Log("Chocaste con un carro!");
+            Debug.Log($"Chocaste con un carro! {vida}");
+            takeDamage(10);
             // Aquí restas pasajeros / vida, reproducir sonido, etc.
             // Ej: GameManager.Instance.LosePassenger();
         }
     }
     public void takeDamage(int damage)
     {
-        vida += damage;
+        vida -= damage;
+        if (vida <= 0) SceneManager.LoadScene(1);
+
     }
     public int getLife()
     {
-        return (int)vida/10;
+        return (int)vida/20;
     }
-    
+    public float MasShoot()
+    {
+        if (velocidadActual < 5) return 1f;
+        else if(velocidadActual >= 5)return 3f;
+        else return 5f;
+    }
 }

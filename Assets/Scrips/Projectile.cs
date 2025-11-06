@@ -58,7 +58,7 @@ public class ProjectileDemo : MonoBehaviour,IPooledObject
             Collider2D[] hits = Physics2D.OverlapCircleAll(targetPos, 0.5f);
             foreach (var hit in hits)
             {
-                if (hit.CompareTag("Traffic"))
+                if (hit.CompareTag("Traffic")||hit.CompareTag("Player"))
                 {
                     // aplicar daño
                     
@@ -72,7 +72,10 @@ public class ProjectileDemo : MonoBehaviour,IPooledObject
                     {
                         sr.sortingLayerName = "Proyectiles";
                     }
+                    if(hit.GetComponent<TrafficCar>() != null)
                     hit.GetComponent<TrafficCar>().TakeDamage(damage);
+                    if(hit.GetComponent<PlayerPhysicsController>()!= null)
+                        hit.GetComponent<PlayerPhysicsController>().takeDamage(damage);
                     break; // solo uno
                 }
             }

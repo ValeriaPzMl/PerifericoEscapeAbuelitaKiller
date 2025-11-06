@@ -5,20 +5,21 @@ using Unity.VisualScripting;
 using UnityEngine;
 using TMPro; // Asegúrate de tener TextMeshPro importado
 using UnityEngine.SceneManagement;
-
+using System.Text.RegularExpressions;
 
 public class TrafficCar : MonoBehaviour, IPooledObject
 {
     private Transform player;
     private Rigidbody2D rb;
     private Animator explotar;
+    public string cat;
 
     [Header("Parámetros generales")]
     public float velocidad = 5f;
     private float velocidadActual;
-    public int vidaInicial = 100;
+    public int vidaInicial;
     private int health;
-    public int distanciaMaxima = 50;
+    public int distanciaMaxima = 70;
 
     [Header("Sensores de tráfico")]
     public float distanciaDeteccion = 3f;   // distancia para detectar autos al frente
@@ -31,6 +32,9 @@ public class TrafficCar : MonoBehaviour, IPooledObject
     public float altoDeteccion = 2f;
 
     public DisplayData matador;
+    public EnemyWeapon atacador;
+
+    private AudioSource pitar;
 
 
     void Start()
@@ -39,6 +43,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         velocidadActual = velocidad;
         health = vidaInicial;
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        pitar = GetComponent<AudioSource>();
         //protaCS = player.GetComponent<PlayerPhysicsController>();
 
     }
@@ -79,8 +84,15 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         // 🔹 Revisa si se alejó demasiado del jugador
         if (player != null)
         {
-            float distancia = Vector3.Distance(transform.position, player.position);
-            if (distancia >= distanciaMaxima)
+            // El jugador avanza hacia arriba (eje Y)
+            Vector2 direccionJugador = player.up;
+            Vector2 direccionAlObjeto = (transform.position - player.position).normalized;
+
+            float punto = Vector2.Dot(direccionJugador, direccionAlObjeto);
+            float distancia = Vector2.Distance(transform.position, player.position);
+
+            // Solo devolver al pool si está lejos y detrás del jugador
+            if (distancia >= distanciaMaxima && punto < 0f)
             {
                 quitarHits();
                 DevolverAlPool();
@@ -97,11 +109,13 @@ public class TrafficCar : MonoBehaviour, IPooledObject
             // Si choca con otro auto, desacelera un poco
             velocidadActual = otroCarro.velocidadActual * 0.8f;
             estaChocando = true;
+            pitar.Play();
         }
         else
         {
+            if (collision.gameObject.tag == "limites") DevolverAlPool();
             // Si choca con algo que no es auto (jugador, obstáculo, etc.)
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            //rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             velocidadActual = 0f;
         }
     }
@@ -111,7 +125,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         estaChocando = false;
         //velocidadActual = velocidad;
         // Al dejar de chocar, libera movimiento lateral otra vez
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     // 🔹 Gizmos para depuración
@@ -135,7 +149,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         foreach (Transform child in transform)
             hijos.Add(child.gameObject);
 
-        transform.DetachChildren();
+        //transform.DetachChildren();
 
         foreach (GameObject childGO in hijos)
         {
@@ -150,23 +164,30 @@ public class TrafficCar : MonoBehaviour, IPooledObject
     }
 
     private string ObtenerNombreBase(string name)
-    {
-        string limpio = name.Replace("(Clone)", "").Trim();
-        int index = limpio.IndexOf("_");
-        if (index > 0) limpio = limpio.Substring(0, index);
-        return limpio;
-    }
+{
+    string limpio = name.Replace("(Clone)", "").Trim();
+
+    // Quitar todas las 'Z' o 'z'
+    limpio = Regex.Replace(limpio, "[Zz]", "");
+
+    int index = limpio.IndexOf("_");
+    if (index > 0)
+        limpio = limpio.Substring(0, index);
+
+    return limpio;
+}
 
     public void DevolverAlPool()
     {
         string nombrePool = ObtenerNombreBase(gameObject.name);
-        PoolManager.Instance.ReturnToPool("NPCs", nombrePool, gameObject);
+        PoolManager.Instance.ReturnToPool(cat, nombrePool, gameObject);
         Debug.Log($"♻️ Devuelto al pool: {nombrePool}");
     }
 
     public void TakeDamage(int dmg)
     {
         health -= dmg;
+        if (atacador != null) atacador.EstaSiendoAtacado();
         if (health <= 0)
             muerte();
     }
@@ -180,6 +201,9 @@ public class TrafficCar : MonoBehaviour, IPooledObject
 
     public void OnSpawn()
     {
+        if(pitar==null)
+            pitar=GetComponent<AudioSource>();
+
         if (matador == null)
             matador = FindFirstObjectByType<DisplayData>();
 

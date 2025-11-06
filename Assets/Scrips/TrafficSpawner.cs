@@ -4,8 +4,8 @@ using UnityEngine;
 public class TrafficSpawner : MonoBehaviour
 {
     [Header("Prefabs")]
-    public GameObject[] vehiculos; // coches posibles
-    public Transform camion;       // referencia al camión
+    public Transform camion;
+    public Vector2[] medidasCarros;// referencia al camión
 
     [Header("Spawn config")]
     private float distanciaSpawn = 20f; // qué tan lejos del camión aparecen
@@ -14,7 +14,7 @@ public class TrafficSpawner : MonoBehaviour
     public float zonaSegura = 15f;
 
     [Header("Carriles")]
-    public float[] posicionesCarriles; 
+    public float[] posicionesCarriles;
 
     [Header("Densidad global")]
     public int maxCoches = 30; // máximo en pantalla
@@ -36,7 +36,7 @@ public class TrafficSpawner : MonoBehaviour
         int cochesActuales = GameObject.FindGameObjectsWithTag("Traffic").Length;
         if (cochesActuales >= maxCoches) return;
 
-        if (posicionesCarriles.Length == 0 || vehiculos.Length == 0) return;
+        if (posicionesCarriles.Length == 0 || medidasCarros.Length == 0) return;
 
         // 📏 Buscar el auto más lejano hacia adelante
         float maxY = camion.position.y;
@@ -52,26 +52,20 @@ public class TrafficSpawner : MonoBehaviour
         Vector3 pos = new Vector3(x, spawnY, 0);
 
         // 🧱 Verificar espacio libre con OverlapBox
-        int numeroRandom = Random.Range(0, vehiculos.Length);
-        GameObject prefab = PoolManager.Instance.GetFromPool("NPCs", $"carro{numeroRandom + 1}");
-        if (prefab == null) return;
+        int numeroRandom = Random.Range(0, medidasCarros.Length);
 
-        TrafficCar carData = prefab.GetComponent<TrafficCar>();
-        if (carData == null)
-        {
-            Debug.LogWarning($"El prefab {prefab.name} no tiene TrafficCar");
-            return;
-        }
 
-        Vector2 detectionSize = carData.GetDetectionSize();
+
+
+
+        Vector2 detectionSize = medidasCarros[numeroRandom];
         Collider2D check = Physics2D.OverlapBox(pos, detectionSize, 0f, trafficLayer);
 
-        if (check != null) {
-            PoolManager.Instance.ReturnToPool("NPCs", $"carro{numeroRandom + 1}", prefab);
-            return; }// ya hay un carro muy cerca
+        if (check != null) return;
 
-        // 5. Instanciar
-        if (prefab != null)
+        GameObject prefab = PoolManager.Instance.GetFromPool("NPCs", $"carro{numeroRandom + 1}");
+        if (prefab == null) return;
+        else
         {
             prefab.transform.position = pos;
             prefab.transform.rotation = Quaternion.identity;
