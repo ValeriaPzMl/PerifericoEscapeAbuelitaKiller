@@ -9,17 +9,17 @@ public class ProjectileDemo : MonoBehaviour,IPooledObject
     public GameObject impactPrefab; // sandía aplastada
     public string categoryName;
     private AudioSource audiot;
+    private bool Yo;
 
 
-
-    public void Init(Vector3 target, int dmg)
+    public void Init(Vector3 target, int dmg,bool self)
     {
         targetPos = target;
         damage = dmg;
         Vector3 direction = targetPos - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
-
+        Yo=self;
     }
 
     void Update()
@@ -57,8 +57,8 @@ public class ProjectileDemo : MonoBehaviour,IPooledObject
             // revisar si hay algún coche
             Collider2D[] hits = Physics2D.OverlapCircleAll(targetPos, 0.5f);
             foreach (var hit in hits)
-            {
-                if (hit.CompareTag("Traffic")||hit.CompareTag("Player"))
+            { 
+                if (hit.CompareTag("Traffic")||(hit.CompareTag("Player")&& !Yo))
                 {
                     // aplicar daño
                     

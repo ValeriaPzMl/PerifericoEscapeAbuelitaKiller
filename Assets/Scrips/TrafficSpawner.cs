@@ -8,7 +8,7 @@ public class TrafficSpawner : MonoBehaviour
     public Vector2[] medidasCarros;// referencia al camión
 
     [Header("Spawn config")]
-    private float distanciaSpawn = 20f; // qué tan lejos del camión aparecen
+    //private float distanciaSpawn = 20f; // qué tan lejos del camión aparecen
     public float tiempoSpawn = 0.5f;   // cada cuánto intenta spawnear
     public LayerMask trafficLayer;     // capa de tráfico
     public float zonaSegura = 15f;

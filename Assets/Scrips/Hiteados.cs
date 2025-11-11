@@ -5,11 +5,11 @@ public class Hiteados : MonoBehaviour, IPooledObject
     private Transform player;
     private int distanciaMaxima = 50;
     public string categoryName;
-    private AudioSource audio;
+    private AudioSource plack;
 
     void Awake()
     {
-        audio = GetComponent<AudioSource>();
+        plack = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -35,11 +35,11 @@ public class Hiteados : MonoBehaviour, IPooledObject
 
     public void OnSpawn()
     {
-        if (audio == null)
-            audio = GetComponent<AudioSource>();
+        if (plack == null)
+            plack = GetComponent<AudioSource>();
 
-        if (audio != null)
-            audio.Play();
+        if (plack != null)
+            plack.Play();
     }
 
 

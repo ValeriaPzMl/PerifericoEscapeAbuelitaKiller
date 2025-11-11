@@ -4,6 +4,7 @@ public class PlayerWeapons : MonoBehaviour
 {
     [Header("Referencias")]
     public Transform weaponHolder; // Donde se coloca el arma
+    public PowerUpManager pum;
 
     private GameObject currentWeapon;
     private string currentCategory;
@@ -34,5 +35,7 @@ public class PlayerWeapons : MonoBehaviour
         currentWeapon.transform.localRotation = Quaternion.identity;
 
         Debug.Log($"✅ Arma equipada desde pool: {category}/Prefab");
+
+        pum.NewWeapon(currentWeapon);
     }
 }

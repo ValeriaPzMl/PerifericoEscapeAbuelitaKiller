@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1624428265
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -4042387506240864765, guid: ea01d042974113841b2835c0e0525092, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -129,7 +129,7 @@ MonoBehaviour:
   animator: {fileID: 8093942253375240502}
   projectilePrefab: {fileID: 3692874640937271480, guid: 08985e3966362bc4fb50d66fe271dce3, type: 3}
   firePoint: {fileID: 6734193433523782307}
-  damage: 50
+  damageFijo: 25
   categoryName: catapultaPina
 --- !u!114 &4266604936451728844
 MonoBehaviour:

@@ -7,7 +7,7 @@ public class PlayerPhysicsController : MonoBehaviour
     private float aceleracion = 2f;
     private float freno = 4f;
     private float velMax = 15f;
-    private float anguloMaxLlantas = 5f;
+    private float anguloMaxLlantas = 7f;
     private float distanciaEjes = 5f;
 
     private Rigidbody2D rb;
@@ -15,6 +15,7 @@ public class PlayerPhysicsController : MonoBehaviour
     private float anguloVolante = 0f;
     private float vida = 800;
     private int carrosMuertos;
+    private float Shield = 1;
 
     void Awake()
     {
@@ -28,9 +29,15 @@ public class PlayerPhysicsController : MonoBehaviour
     {
         // Input de volante suavizado
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
             anguloVolante = Mathf.Lerp(anguloVolante, anguloMaxLlantas, Time.deltaTime * 6f);
-        else if (Input.GetKey(KeyCode.RightArrow)|| Input.GetKey(KeyCode.D))
+            if (velocidadActual <= 0) velocidadActual = 1;
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
             anguloVolante = Mathf.Lerp(anguloVolante, -anguloMaxLlantas, Time.deltaTime * 6f);
+            if (velocidadActual <= 0) velocidadActual = 1;
+        }
         else
             anguloVolante = Mathf.Lerp(anguloVolante, 0f, Time.deltaTime * 6f);
 
@@ -69,12 +76,36 @@ public class PlayerPhysicsController : MonoBehaviour
             // Ej: GameManager.Instance.LosePassenger();
         }
     }
-    public void takeDamage(int damage)
+    public void takeDamage(float damage)
     {
+        damage *= Shield;
         vida -= damage;
+        Debug.Log($"se ataco con {damage}");
         if (vida <= 0) SceneManager.LoadScene(1);
 
     }
+    public void Proteger(float sh)
+    {
+        Shield = sh;
+    }
+    public void DesProteger(bool nada, bool medias)
+    {
+        if(medias && !nada)
+        {
+            Shield = 0.5f;
+        }else if(nada && !medias)
+        {
+            Shield = 0;
+        }else if(!nada && !medias)
+        {
+            Shield = 1;
+        }
+        else
+        {
+            Shield = 0;
+        }
+    }
+    
     public int getLife()
     {
         return (int)vida/20;
@@ -84,5 +115,13 @@ public class PlayerPhysicsController : MonoBehaviour
         if (velocidadActual < 5) return 1f;
         else if(velocidadActual >= 5)return 3f;
         else return 5f;
+    }
+    public void MasVida(float x)
+    {
+        vida += x;
+    }
+    public void CompletarVida()
+    {
+        vida = (vida<800)?800 :vida;
     }
 }

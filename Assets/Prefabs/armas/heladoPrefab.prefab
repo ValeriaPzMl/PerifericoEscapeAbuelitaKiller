@@ -110,7 +110,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1624428265
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 7344550937620268600, guid: 76b8b63f7b8b5974aaddf12029c2e792, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -160,7 +160,7 @@ MonoBehaviour:
   animator: {fileID: 8074151189829052677}
   projectilePrefab: {fileID: 1248904355775840863, guid: 106e755ea78706a4abee9243d2b25afb, type: 3}
   firePoint: {fileID: 6999507029065645905}
-  damage: 50
+  damageFijo: 60
   categoryName: helado
 --- !u!114 &-756084495069587248
 MonoBehaviour:

@@ -72,7 +72,7 @@ public class EnemyWeapon : MonoBehaviour
         {
             proj.transform.position = firePoint.position;
             proj.transform.rotation = firePoint.rotation;
-            proj.GetComponent<ProjectileDemo>().Init(targetPos, damage);
+            proj.GetComponent<ProjectileDemo>().Init(targetPos, damage,false);
         }
     }
 

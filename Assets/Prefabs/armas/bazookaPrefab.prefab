@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1624428265
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 22578217066860442, guid: 28c28be4990c66840b0c599ec97b3fa2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -129,7 +129,7 @@ MonoBehaviour:
   animator: {fileID: 5746922408097012742}
   projectilePrefab: {fileID: 4487278166697662475, guid: aec08059b05cb6e46a715099ea758536, type: 3}
   firePoint: {fileID: 4334366436263168807}
-  damage: 50
+  damageFijo: 150
   categoryName: bazooka
 --- !u!114 &1405448112027431686
 MonoBehaviour:

@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class WeaponDemo : MonoBehaviour
+public class WeaponDemo : MonoBehaviour,IPooledObject
 {
     [Header("Config Arma")]
     public Animator animator;        // animador de la catapulta / arma
     public GameObject projectilePrefab;
     public Transform firePoint;
-    public int damage = 50;
+    public int damageFijo;
+    private int damage;
     public string categoryName;
     private GameObject jugador;
     private Vector3 targetPos;
@@ -40,8 +41,27 @@ public class WeaponDemo : MonoBehaviour
         {
             proj.transform.position = firePoint.position;
             proj.transform.rotation = firePoint.rotation;
-            proj.GetComponent<ProjectileDemo>().Init(targetPos, damage);
+            proj.GetComponent<ProjectileDemo>().Init(targetPos, damage,true);
         }
 
+    }
+    public void ChangeDmage(int dam) {
+        damage *= dam;
+        Debug.Log($"se cambio el daño a{damage}");
+    }
+    public void RestaurarDamge(int ex)
+    {
+        damage /= ex;
+        Debug.Log($"se cambio el daño a{damage}");
+    }
+
+    public void OnSpawn()
+    {
+        damage = damageFijo;
+    }
+
+    public void OnDespawn()
+    {
+        damage = damageFijo;
     }
 }

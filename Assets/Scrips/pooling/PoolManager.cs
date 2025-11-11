@@ -20,7 +20,7 @@ public class PoolManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         categoryDictionary = new Dictionary<string, PoolCategory>();
 

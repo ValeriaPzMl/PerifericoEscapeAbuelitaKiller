@@ -19,7 +19,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
     private float velocidadActual;
     public int vidaInicial;
     private int health;
-    public int distanciaMaxima = 70;
+    public int distanciaMaxima = 20;
 
     [Header("Sensores de tráfico")]
     public float distanciaDeteccion = 3f;   // distancia para detectar autos al frente
@@ -36,6 +36,9 @@ public class TrafficCar : MonoBehaviour, IPooledObject
 
     private AudioSource pitar;
 
+    [Header("enemigos")]
+    public string categoria;
+    public bool enemigo;
 
     void Start()
     {
@@ -189,6 +192,14 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         health -= dmg;
         if (atacador != null) atacador.EstaSiendoAtacado();
         if (health <= 0)
+            if (enemigo){
+                GameObject pickup = PoolManager.Instance.GetFromPool(categoria, "Taker");
+                if (pickup != null)
+                {
+                    pickup.transform.position = transform.position;
+                }
+
+            }
             muerte();
     }
 
