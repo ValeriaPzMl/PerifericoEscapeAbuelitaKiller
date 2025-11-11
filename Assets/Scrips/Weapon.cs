@@ -41,6 +41,7 @@ public class WeaponDemo : MonoBehaviour,IPooledObject
         {
             proj.transform.position = firePoint.position;
             proj.transform.rotation = firePoint.rotation;
+            Debug.Log($"proyectil de {damage}");
             proj.GetComponent<ProjectileDemo>().Init(targetPos, damage,true);
         }
 

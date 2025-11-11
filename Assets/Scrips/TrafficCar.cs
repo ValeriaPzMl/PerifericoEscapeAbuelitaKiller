@@ -190,9 +190,12 @@ public class TrafficCar : MonoBehaviour, IPooledObject
     public void TakeDamage(int dmg)
     {
         health -= dmg;
+        Debug.Log($"golpe de {dmg} dejo la vida en {health}");
         if (atacador != null) atacador.EstaSiendoAtacado();
         if (health <= 0)
-            if (enemigo){
+        {
+            if (enemigo)
+            {
                 GameObject pickup = PoolManager.Instance.GetFromPool(categoria, "Taker");
                 if (pickup != null)
                 {
@@ -201,6 +204,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
 
             }
             muerte();
+        }
     }
 
     public void muerte()

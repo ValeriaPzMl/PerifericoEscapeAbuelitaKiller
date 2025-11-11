@@ -163,6 +163,8 @@ MonoBehaviour:
   altoDeteccion: 5.5
   matador: {fileID: 0}
   atacador: {fileID: 6283385641088991078}
+  categoria: helado
+  enemigo: 1
 --- !u!95 &3680228627504971041
 Animator:
   serializedVersion: 7

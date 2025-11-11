@@ -14,7 +14,6 @@ public class WeaponPickup : MonoBehaviour
             if (pw != null)
             {
                 // 🔹 Sacamos la categoría directamente del prefab
-                wd = weaponPrefab.GetComponent<WeaponDemo>();
                 if (wd != null)
                 {
                     pw.EquipWeapon(weaponPrefab, wd.categoryName);
@@ -34,7 +33,7 @@ public class WeaponPickup : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
-
+        wd = weaponPrefab.GetComponent<WeaponDemo>();
     }
     private void Update()
     {

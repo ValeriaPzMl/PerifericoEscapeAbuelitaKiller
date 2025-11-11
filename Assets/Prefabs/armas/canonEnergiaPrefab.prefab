@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1624428265
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -201379956367691874, guid: 96e62295f68d6f343a7694a5f1c87816, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -129,7 +129,7 @@ MonoBehaviour:
   animator: {fileID: 2188093233258410294}
   projectilePrefab: {fileID: 2609082165255059290, guid: 6e85a70e02b83a34c9325c2d86f8c801, type: 3}
   firePoint: {fileID: 6876850422709127901}
-  damage: 50
+  damageFijo: 100
   categoryName: canonEnergia
 --- !u!114 &2680949965592917083
 MonoBehaviour:
