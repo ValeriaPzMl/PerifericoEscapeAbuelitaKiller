@@ -365,8 +365,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278207999
-  m_fontColor: {r: 1, g: 0.2705882, b: 0, a: 1}
+    rgba: 4284654102
+  m_fontColor: {r: 0.08627451, g: 0.63529414, b: 0.38431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -918,68 +918,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389253641}
   m_CullTransparentMesh: 1
---- !u!1 &407554051
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 407554053}
-  - component: {fileID: 407554052}
-  m_Layer: 0
-  m_Name: trafficSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &407554052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407554051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9066ebf47673f44da1c479dae270ac5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camion: {fileID: 962674952}
-  medidasCarros:
-  - {x: 2, y: 5.5}
-  - {x: 2.5, y: 6.2}
-  - {x: 2.5, y: 5.7}
-  - {x: 4, y: 15}
-  - {x: 3, y: 9}
-  - {x: 3, y: 7.6}
-  tiempoSpawn: 0.5
-  trafficLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  zonaSegura: 10
-  posicionesCarriles:
-  - -4.5
-  - 0
-  - 4.5
-  maxCoches: 30
---- !u!4 &407554053
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407554051}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.96987, y: -3.59631, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,8 +1354,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190242
-  m_fontColor: {r: 0.63529414, g: 0, b: 0, a: 1}
+    rgba: 4285415442
+  m_fontColor: {r: 0.07058824, g: 0.2509804, b: 0.43137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1536,8 +1474,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionManager: {fileID: 962674959}
   carreteraSpawner: {fileID: 291133482}
-  enemySpawner: {fileID: 1511066019}
-  trafficSpawner: {fileID: 407554052}
+  enemySpawner: {fileID: 0}
+  trafficSpawner: {fileID: 0}
+  unifiedSpawner: {fileID: 1582953183}
   kmCambioA4: 1
   kmCambioA5: 2
 --- !u!4 &931080906
@@ -1718,9 +1657,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_Mass: 3
+  m_LinearDamping: 1.2
+  m_AngularDamping: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1760,7 +1699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   differenceX: 0
---- !u!1001 &1007253364
+--- !u!1001 &1021416942
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1768,55 +1707,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4234703046347587958, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
+    - target: {fileID: 1665831624114038837, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
+      propertyPath: m_Name
+      value: catapultaSandiaTaker
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204743076976317021, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.21
+      value: -3.099841
       objectReference: {fileID: 0}
-    - target: {fileID: 4234703046347587958, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
+    - target: {fileID: 2204743076976317021, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 62
+      value: 2.217758
       objectReference: {fileID: 0}
-    - target: {fileID: 4234703046347587958, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
+    - target: {fileID: 2204743076976317021, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4234703046347587958, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
+    - target: {fileID: 2204743076976317021, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4234703046347587958, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
+    - target: {fileID: 2204743076976317021, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4234703046347587958, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
+    - target: {fileID: 2204743076976317021, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4234703046347587958, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
+    - target: {fileID: 2204743076976317021, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4234703046347587958, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
+    - target: {fileID: 2204743076976317021, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4234703046347587958, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
+    - target: {fileID: 2204743076976317021, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4234703046347587958, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
+    - target: {fileID: 2204743076976317021, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878168130270108750, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
-      propertyPath: m_Name
-      value: heladoTaker
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7075572a7a75afe4588c7ef0196e49d6, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: d4e2bded710fb7c478899f6b3421cadc, type: 3}
 --- !u!1 &1070144127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,8 +1914,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293322470
-  m_fontColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+    rgba: 4289588470
+  m_fontColor: {r: 0.9647059, g: 0.9254902, b: 0.6784314, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2037,71 +1976,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &1511066017
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1511066018}
-  - component: {fileID: 1511066019}
-  m_Layer: 0
-  m_Name: enemiesSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1511066018
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511066017}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 223, y: 787, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1511066019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511066017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71ab12c1f2911a146968a07ae2b167ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camion: {fileID: 962674952}
-  medidasCarros:
-  - {x: 2, y: 5.5}
-  - {x: 2, y: 5.5}
-  - {x: 2, y: 5.5}
-  - {x: 2, y: 5.5}
-  - {x: 2, y: 5.5}
-  - {x: 2, y: 5.5}
-  - {x: 2, y: 5.5}
-  - {x: 2, y: 5.5}
-  tiempoSpawn: 0.7
-  trafficLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  zonaSegura: 10
-  dificultad: 0
-  posicionesCarriles:
-  - -4.5
-  - 0
-  - 4.5
-  maxCoches: 30
 --- !u!1 &1513242634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2213,8 +2087,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293322470
-  m_fontColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+    rgba: 4289588470
+  m_fontColor: {r: 0.9647059, g: 0.9254902, b: 0.6784314, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2275,7 +2149,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &1711894344
+--- !u!1 &1582953182
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2283,46 +2157,68 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1711894346}
-  - component: {fileID: 1711894345}
+  - component: {fileID: 1582953184}
+  - component: {fileID: 1582953183}
   m_Layer: 0
-  m_Name: powerSpawner
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1711894345
+--- !u!114 &1582953183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1711894344}
+  m_GameObject: {fileID: 1582953182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72d2338e523bbf1429c69566406234d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 86f9c15d33012c44aafa4de066ab5040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   camion: {fileID: 962674952}
-  tiempoSpawn: 5
+  tiempoSpawn: 0.15
   zonaSegura: 15
   posicionesCarriles:
-  - -5
-  - -2.5
+  - -4.5
   - 0
-  - 2.5
-  - 5
---- !u!4 &1711894346
+  - 4.5
+  trafficLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  medidasCarros:
+  - {x: 2, y: 5.5}
+  - {x: 2.5, y: 6.2}
+  - {x: 2.5, y: 5.7}
+  - {x: 4, y: 15}
+  - {x: 3, y: 9}
+  - {x: 3, y: 7.6}
+  maxCoches: 30
+  dificultad: 1
+  medidasEnemigos:
+  - {x: 2, y: 5.5}
+  - {x: 2, y: 5.5}
+  - {x: 2, y: 5.5}
+  - {x: 2, y: 5.5}
+  - {x: 2, y: 5.5}
+  - {x: 2, y: 5.5}
+  - {x: 2, y: 5.5}
+  - {x: 2, y: 5.5}
+  probabilidadPowerUp: 0.15
+  probabilidadEnemy: 0.3
+  armas: 
+--- !u!4 &1582953184
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1711894344}
+  m_GameObject: {fileID: 1582953182}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.42813, y: 38.92691, z: 0}
+  m_LocalPosition: {x: 327.91003, y: 300.6207, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2481,8 +2377,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278232575
-  m_fontColor: {r: 1, g: 0.6470588, b: 0, a: 1}
+    rgba: 4285523892
+  m_fontColor: {r: 0.7058824, g: 0.90588236, b: 0.43529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2570,63 +2466,6 @@ RectTransform:
   m_AnchoredPosition: {x: 383.96994, y: -59.51996}
   m_SizeDelta: {x: 434.9367, y: 98.86151}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &1770993683
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5428322904405513206, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
-      propertyPath: m_Name
-      value: canonEnergiaTaker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924805239092529802, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d23db387bb0ef864c954e4d5243e59b7, type: 3}
 --- !u!1 &1892962406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3009,14 +2848,11 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 962674952}
   - {fileID: 291133483}
-  - {fileID: 407554053}
-  - {fileID: 1511066018}
   - {fileID: 1070144129}
   - {fileID: 647215554}
   - {fileID: 121966695}
   - {fileID: 931080906}
   - {fileID: 299412545}
-  - {fileID: 1770993683}
-  - {fileID: 1007253364}
   - {fileID: 28777150}
-  - {fileID: 1711894346}
+  - {fileID: 1582953184}
+  - {fileID: 1021416942}

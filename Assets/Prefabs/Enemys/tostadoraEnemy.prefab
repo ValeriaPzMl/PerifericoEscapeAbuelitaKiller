@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8443333115581776472}
   firePoint: {fileID: 2636711803136469918}
-  damage: 15
+  damage: 45
   coolDown: 4
   categoryName: tostadora
   distanciaAtaque: 5

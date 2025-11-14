@@ -1,4 +1,4 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -7,8 +7,8 @@ public class PlayerPhysicsController : MonoBehaviour
     private float aceleracion = 2f;
     private float freno = 4f;
     private float velMax = 15f;
-    private float anguloMaxLlantas = 7f;
-    private float distanciaEjes = 5f;
+    private float anguloMaxLlantas = 10f;
+    private float distanciaEjes = 6f;
 
     private Rigidbody2D rb;
     private float velocidadActual = 0f;
@@ -20,60 +20,76 @@ public class PlayerPhysicsController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        // Opcional: mejorar colisiones si vas muy r·pido
+        // Opcional: mejorar colisiones si vas muy r√°pido
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 
     void Update()
     {
-        // Input de volante suavizado
+        // Input volante
+        float inputTurn = 0f;
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            anguloVolante = Mathf.Lerp(anguloVolante, anguloMaxLlantas, Time.deltaTime * 6f);
-            if (velocidadActual <= 0) velocidadActual = 1;
-        }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            anguloVolante = Mathf.Lerp(anguloVolante, -anguloMaxLlantas, Time.deltaTime * 6f);
-            if (velocidadActual <= 0) velocidadActual = 1;
-        }
-        else
-            anguloVolante = Mathf.Lerp(anguloVolante, 0f, Time.deltaTime * 6f);
+            inputTurn = 1f;
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            inputTurn = -1f;
 
-        // Acelerar / frenar
-        if (Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.W))
+        // Suavizar √°ngulo del volante
+        anguloVolante = Mathf.Lerp(anguloVolante, inputTurn * anguloMaxLlantas, Time.deltaTime * 8f);
+
+        // Acelerar
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             velocidadActual += aceleracion * Time.deltaTime;
-        else if (Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.S))
-            velocidadActual -= freno * Time.deltaTime; // frena si no aceleras (ajusta a tu gusto)
 
-        velocidadActual = Mathf.Clamp(velocidadActual, 0f, velMax);
+        // Reversa
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            velocidadActual -= aceleracion * Time.deltaTime;
+
+        // Fricci√≥n cuando no tocas nada
+        if (!Input.anyKey)
+            velocidadActual = Mathf.Lerp(velocidadActual, 0f, Time.deltaTime * 1.5f);
+
+        velocidadActual = Mathf.Clamp(velocidadActual, -velMax * 0.5f, velMax);
     }
 
     void FixedUpdate()
     {
-        // Movimiento tipo coche simple (Ackermann aproximado)
         float rad = anguloVolante * Mathf.Deg2Rad;
-        float giroAngular = Mathf.Tan(rad) * velocidadActual / Mathf.Max(0.001f, distanciaEjes);
 
-        // Actualizamos rotaciÛn y posiciÛn con la fÌsica
-        float anguloDeg = giroAngular * Mathf.Rad2Deg * Time.fixedDeltaTime;
-        rb.MoveRotation(rb.rotation + anguloDeg);
+        // Giro basado en velocidad actual
+        float giroAngular = Mathf.Tan(rad) * velocidadActual / Mathf.Max(0.01f, distanciaEjes);
 
-        // Mover hacia adelante seg˙n la orientaciÛn actual
-        Vector2 dir = transform.up; // assuming sprite's up is forward
-        rb.MovePosition(rb.position + dir * velocidadActual * Time.fixedDeltaTime);
+        // Aplicar giro real
+        rb.angularVelocity = giroAngular * Mathf.Rad2Deg;
+
+        // Mover seg√∫n velocidad actual
+        rb.linearVelocity = transform.up * velocidadActual;
     }
 
-    // Manejo de colisiones: se dispara cuando el Rigidbody din·mico toca un collider est·tico
+
+
+    // Manejo de colisiones: se dispara cuando el Rigidbody din√°mico toca un collider est√°tico
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.collider.CompareTag("Traffic"))
         {
-            Debug.Log($"Chocaste con un carro! {vida}");
-            takeDamage(10);
-            // AquÌ restas pasajeros / vida, reproducir sonido, etc.
-            // Ej: GameManager.Instance.LosePassenger();
+            // --- VELOCIDAD DEL IMPACTO ---
+            float impacto = col.relativeVelocity.magnitude;
+
+            // --- DA√ëO REALISTA ---
+            float da√±o = impacto;   // Ajusta multiplicador seg√∫n se sienta
+            takeDamage(da√±o);
+
+            // --- KNOCKBACK DEL JUGADOR ---
+            Vector2 normal = col.GetContact(0).normal;
+            rb.AddForce(normal * impacto * 0.2f, ForceMode2D.Impulse);
+
+            // --- EMPUJE AL OTRO CARRO ---
+            Rigidbody2D otroRB = col.collider.GetComponent<Rigidbody2D>();
+            if (otroRB != null)
+                otroRB.AddForce(-normal * impacto*2f, ForceMode2D.Impulse);
+
+            Debug.Log($"üí• Impacto={impacto} | Da√±o={da√±o}");
         }
     }
     public void takeDamage(float damage)

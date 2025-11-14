@@ -129,7 +129,7 @@ MonoBehaviour:
   animator: {fileID: 8443333115581776472}
   projectilePrefab: {fileID: 4140316499890769185, guid: 994c3b92c38018e4888d982ea33899cb, type: 3}
   firePoint: {fileID: 2636711803136469918}
-  damageFijo: 15
+  damageFijo: 45
   categoryName: tostadora
 --- !u!114 &6019155239628586749
 MonoBehaviour:

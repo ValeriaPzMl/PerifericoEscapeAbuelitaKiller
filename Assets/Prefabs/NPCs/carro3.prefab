@@ -116,6 +116,8 @@ MonoBehaviour:
   altoDeteccion: 5.7
   matador: {fileID: 0}
   atacador: {fileID: 0}
+  categoria: 
+  enemigo: 0
 --- !u!61 &-3333787391861477867
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,7 +152,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0012785494, y: 0.0194816}
+  m_Offset: {x: -0.0012785494, y: 0.000341177}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -160,7 +162,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.57494205, y: 1.3438205}
+  m_Size: {x: 0.57494205, y: 1.3055396}
   m_EdgeRadius: 0
 --- !u!95 &-4178609288953619734
 Animator:
@@ -196,9 +198,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_Mass: 1.5
+  m_LinearDamping: 1.2
+  m_AngularDamping: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -210,7 +212,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 5
+  m_Constraints: 4
 --- !u!82 &7411005567544011948
 AudioSource:
   m_ObjectHideFlags: 0

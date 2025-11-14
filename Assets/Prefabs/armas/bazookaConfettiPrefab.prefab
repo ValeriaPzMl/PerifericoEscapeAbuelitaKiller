@@ -142,7 +142,7 @@ MonoBehaviour:
   animator: {fileID: 4806719471880085642}
   projectilePrefab: {fileID: 2255957135745468393, guid: 8b125d68d76940c4885fd1437bbb7196, type: 3}
   firePoint: {fileID: 5063026355775218864}
-  damageFijo: 40
+  damageFijo: 70
   categoryName: bazookaConfetti
 --- !u!82 &7997622943901286574
 AudioSource:

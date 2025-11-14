@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8074151189829052677}
   firePoint: {fileID: 6999507029065645905}
-  damage: 60
+  damage: 90
   coolDown: 2
   categoryName: helado
   distanciaAtaque: 6

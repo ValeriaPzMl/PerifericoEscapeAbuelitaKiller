@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8093942253375240502}
   firePoint: {fileID: 6734193433523782307}
-  damage: 25
+  damage: 55
   coolDown: 3
   categoryName: catapultaPina
   distanciaAtaque: 5

@@ -129,7 +129,7 @@ MonoBehaviour:
   animator: {fileID: 7576702236529856587}
   projectilePrefab: {fileID: 9073076703782060882, guid: 5cbe8b8bc3a97fe408ac98b9a189e002, type: 3}
   firePoint: {fileID: 3528126996083638168}
-  damageFijo: 20
+  damageFijo: 50
   categoryName: catapultaSandia
 --- !u!114 &-7537573968704162178
 MonoBehaviour:

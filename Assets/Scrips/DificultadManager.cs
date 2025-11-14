@@ -7,6 +7,7 @@ public class DificultadManager : MonoBehaviour
     public CarreteraSpawner carreteraSpawner;
     public EnemySpawner enemySpawner;
     public TrafficSpawner trafficSpawner;
+    public UnifiedSpawner unifiedSpawner;
 
     [Header("Configuración de dificultad")]
     public float kmCambioA4 = 2f;
@@ -31,12 +32,12 @@ public class DificultadManager : MonoBehaviour
         {
             CambiarACarriles(5);
         }
-        int kmInt =(int) Mathf.Floor(km);
+        int kmInt =(int) Mathf.Round(km*5);
         if (dificultad < kmInt&&dificultad<8)
         {
-            
+            Debug.Log($"kms {kmInt}");
             dificultad = kmInt;
-            enemySpawner.SubirDificultad(dificultad);
+            unifiedSpawner.SubirDificultad(dificultad);
             Debug.Log($"subio la dificultada {dificultad}");
         }
         
@@ -52,7 +53,8 @@ public class DificultadManager : MonoBehaviour
         carreteraSpawner.CambiarTipoCarretera(nuevosCarriles);
 
         // 🔹 Actualiza los carriles del tráfico
-        trafficSpawner.ActualizarCarriles(nuevosCarriles);
-        enemySpawner.ActualizarCarriles(nuevosCarriles);
+        //trafficSpawner.ActualizarCarriles(nuevosCarriles);
+        //enemySpawner.ActualizarCarriles(nuevosCarriles);
+        unifiedSpawner.ActualizarCarriles(nuevosCarriles);
     }
 }

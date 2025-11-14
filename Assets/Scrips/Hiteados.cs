@@ -6,6 +6,8 @@ public class Hiteados : MonoBehaviour, IPooledObject
     private int distanciaMaxima = 50;
     public string categoryName;
     private AudioSource plack;
+    private float tiempoVida = 4;
+    private float tiempoSpawn;
 
     void Awake()
     {
@@ -23,13 +25,17 @@ public class Hiteados : MonoBehaviour, IPooledObject
     void Update()
     {
         if (player == null) return;
-
+        tiempoSpawn += Time.deltaTime;
         float distancia = Vector3.Distance(transform.position, player.position);
         if (transform.parent == null && distancia >= distanciaMaxima)
         {
             Debug.Log("Objeto destruido por alejarse demasiado del jugador.");
             PoolManager.Instance.ReturnToPool(categoryName, "hit", gameObject);
             // ❌ Quita Destroy(gameObject)
+        }
+        if (tiempoSpawn >= tiempoVida)
+        {
+            PoolManager.Instance.ReturnToPool(categoryName, "hit", gameObject);
         }
     }
 
@@ -40,6 +46,7 @@ public class Hiteados : MonoBehaviour, IPooledObject
 
         if (plack != null)
             plack.Play();
+        tiempoSpawn = 0;
     }
 
 

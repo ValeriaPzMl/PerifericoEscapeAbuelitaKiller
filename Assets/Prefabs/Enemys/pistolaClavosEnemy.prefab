@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1089117045225380863}
   firePoint: {fileID: 7944158971157105308}
-  damage: 50
+  damage: 80
   coolDown: 2
   categoryName: pistolaClavos
   distanciaAtaque: 8

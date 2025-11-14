@@ -20,6 +20,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
     public int vidaInicial;
     private int health;
     public int distanciaMaxima = 20;
+    private bool vivo;
 
     [Header("Sensores de tráfico")]
     public float distanciaDeteccion = 3f;   // distancia para detectar autos al frente
@@ -53,10 +54,12 @@ public class TrafficCar : MonoBehaviour, IPooledObject
 
     void Update()
     {
-        // 🔹 Raycast para detectar carros enfrente
-        RaycastHit2D hit = Physics2D.Raycast(
-            transform.position,
-            Vector2.up,
+        // Detecta vehículo enfrente con BoxCast más preciso
+        RaycastHit2D hit = Physics2D.BoxCast(
+            transform.position + transform.up * (altoDeteccion / 2),
+            new Vector2(anchoDeteccion, altoDeteccion),
+            0f,
+            transform.up,
             distanciaDeteccion,
             trafficLayer
         );
@@ -64,38 +67,40 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         if (hit.collider != null)
         {
             TrafficCar otroCarro = hit.collider.GetComponent<TrafficCar>();
+
             if (otroCarro != null)
             {
-                // Si el de enfrente va más lento, igualar velocidad
-                if (otroCarro.velocidadActual < velocidadActual)
-                {
-                    velocidadActual = otroCarro.velocidadActual * 0.9f;
-                }
+                // suavizar cambio de velocidad
+                velocidadActual = Mathf.Lerp(
+                    velocidadActual,
+                    otroCarro.velocidadActual,
+                    Time.deltaTime * 3f
+                );
             }
         }
-        else
+        else if (!estaChocando)
         {
-            // Nadie enfrente → vuelve a su velocidad normal
-            if (!estaChocando)
-                velocidadActual =  velocidad;
+            // Regresa a velocidad base
+            velocidadActual = Mathf.Lerp(
+                velocidadActual,
+                velocidad,
+                Time.deltaTime * 0.8f
+            );
         }
+    }
+    void FixedUpdate()
+    {
+        // movimiento estable
+        rb.linearVelocity = transform.up * velocidadActual;
 
-        // 🔹 Movimiento hacia adelante
-        Vector2 nuevaPos = rb.position + Vector2.up * velocidadActual * Time.fixedDeltaTime;
-        rb.MovePosition(nuevaPos);
-
-        // 🔹 Revisa si se alejó demasiado del jugador
         if (player != null)
         {
-            // El jugador avanza hacia arriba (eje Y)
-            Vector2 direccionJugador = player.up;
-            Vector2 direccionAlObjeto = (transform.position - player.position).normalized;
-
-            float punto = Vector2.Dot(direccionJugador, direccionAlObjeto);
             float distancia = Vector2.Distance(transform.position, player.position);
+            Vector2 haciaCarro = (transform.position - player.position).normalized;
 
-            // Solo devolver al pool si está lejos y detrás del jugador
-            if (distancia >= distanciaMaxima && punto < 0f)
+            float punto = Vector2.Dot(player.up, haciaCarro);
+
+            if (distancia > distanciaMaxima && punto < 0)
             {
                 quitarHits();
                 DevolverAlPool();
@@ -103,25 +108,52 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         }
     }
 
+
     // 🔹 Funciones de colisión
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        TrafficCar otroCarro = collision.gameObject.GetComponent<TrafficCar>();
-        if (otroCarro != null)
+        float impacto = col.relativeVelocity.magnitude;
+        Vector2 normal = col.GetContact(0).normal;
+
+        // CHOQUE ENTRE AUTOS
+        TrafficCar otro = col.collider.GetComponent<TrafficCar>();
+        if (otro != null)
         {
-            // Si choca con otro auto, desacelera un poco
-            velocidadActual = otroCarro.velocidadActual * 0.8f;
+            int dmg = Mathf.RoundToInt(impacto);
+
+            TakeDamage(dmg);
+            otro.TakeDamage(dmg);
+
+            rb.AddForce(normal * impacto * 2f, ForceMode2D.Impulse);
+
+            Rigidbody2D otroRB = col.collider.attachedRigidbody;
+            if (otroRB != null)
+                otroRB.AddForce(-normal * impacto * 2f, ForceMode2D.Impulse);
+
             estaChocando = true;
-            pitar.Play();
+            if (pitar != null) pitar.Play();
+            return;
         }
-        else
+
+        // CHOQUE CON PLAYER
+        if (col.collider.CompareTag("Player"))
         {
-            if (collision.gameObject.tag == "limites") DevolverAlPool();
-            // Si choca con algo que no es auto (jugador, obstáculo, etc.)
-            //rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            velocidadActual = 0f;
+            int dmg = Mathf.RoundToInt(impacto);
+            TakeDamage(dmg);
+
+            rb.AddForce(normal * impacto * 3f, ForceMode2D.Impulse);
+            return;
+        }
+
+        // CHOQUE CON PARED
+        if (col.collider.CompareTag("limites"))
+        {
+            DevolverAlPool();
+            return;
         }
     }
+
+
 
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -192,8 +224,9 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         health -= dmg;
         Debug.Log($"golpe de {dmg} dejo la vida en {health}");
         if (atacador != null) atacador.EstaSiendoAtacado();
-        if (health <= 0)
+        if (health <= 0&&vivo)
         {
+            vivo = false;
             if (enemigo)
             {
                 GameObject pickup = PoolManager.Instance.GetFromPool(categoria, "Taker");
@@ -233,6 +266,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
 
         explotar.Rebind();
         explotar.Update(0f);
+        vivo = true;
     }
 
     public void OnDespawn()

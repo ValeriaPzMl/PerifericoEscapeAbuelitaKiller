@@ -129,7 +129,7 @@ MonoBehaviour:
   animator: {fileID: 8093942253375240502}
   projectilePrefab: {fileID: 3692874640937271480, guid: 08985e3966362bc4fb50d66fe271dce3, type: 3}
   firePoint: {fileID: 6734193433523782307}
-  damageFijo: 25
+  damageFijo: 55
   categoryName: catapultaPina
 --- !u!114 &4266604936451728844
 MonoBehaviour:

@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7072849706431192578}
   firePoint: {fileID: 9061703393951367339}
-  damage: 30
+  damage: 60
   coolDown: 3
   categoryName: lanzaCamisas
   distanciaAtaque: 7

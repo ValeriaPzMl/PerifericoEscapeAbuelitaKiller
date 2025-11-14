@@ -1,7 +1,4 @@
-using System.Data.SqlTypes;
-using System.Xml.Serialization;
-using Unity.VisualScripting;
-using UnityEditor.Animations;
+
 using UnityEngine;
 
 public class PowerUpManager : MonoBehaviour
