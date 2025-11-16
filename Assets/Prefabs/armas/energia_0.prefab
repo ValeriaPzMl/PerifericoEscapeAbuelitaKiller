@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1797893635
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: -2526315626089483272, guid: b3e057d0602379a4eb3910a6c61257cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c6c608569f74e4d90df1cc853096ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 35
   impactPrefab: {fileID: 8525897813156945573, guid: 6897baa5db8036e4a805df4256ed2d59, type: 3}
   categoryName: canonEnergia
 --- !u!82 &3903920518814669863

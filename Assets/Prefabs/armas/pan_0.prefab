@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1797893635
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 8041774921739049974, guid: 47838c9327fb9b3409f40b068e7aac8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c6c608569f74e4d90df1cc853096ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 25
   impactPrefab: {fileID: 3834695970422173501, guid: 50cafe482437aba47bcf56646636a959, type: 3}
   categoryName: tostadora
 --- !u!82 &-6265934010333841920

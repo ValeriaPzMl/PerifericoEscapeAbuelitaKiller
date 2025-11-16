@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1797893635
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 840448132841771104, guid: 2c11e4d16625f3541a1f8a602383a905, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c6c608569f74e4d90df1cc853096ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 35
   impactPrefab: {fileID: 918041914856014312, guid: 794e0673de40a404584d1bf14033ce52, type: 3}
   categoryName: pistolaClavos
 --- !u!82 &7297858920642128137

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1797893635
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 7381037849626845749, guid: 524a4e8bd733abb4cb1eec9445d710a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c6c608569f74e4d90df1cc853096ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 25
   impactPrefab: {fileID: 6528317772734254651, guid: b7a096b9346c0b646bf3156524e53aa8, type: 3}
   categoryName: catapultaPina
 --- !u!82 &-2142902490836132868

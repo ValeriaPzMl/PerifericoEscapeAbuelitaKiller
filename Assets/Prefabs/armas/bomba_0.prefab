@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1797893635
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 6841674672596373852, guid: 16c0be1ae359bef41bcb09fe7a054a32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c6c608569f74e4d90df1cc853096ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 30
   impactPrefab: {fileID: 3463323670416255988, guid: bb7419010a8862948bec2a7c59ade923, type: 3}
   categoryName: bombaAtomica
 --- !u!82 &4652691151008952257
