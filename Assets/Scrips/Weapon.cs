@@ -12,14 +12,17 @@ public class WeaponDemo : MonoBehaviour,IPooledObject
     private GameObject jugador;
     private Vector3 targetPos;
     private PlayerPhysicsController playerPhysicsController;
+    private AudioSource pickUp;
 
     private void Start()
     {
         jugador = GameObject.FindGameObjectWithTag("Player");
         playerPhysicsController = jugador.GetComponent<PlayerPhysicsController>();
+        pickUp = GetComponent<AudioSource>();
     }
     void Update()
     {
+        if (PauseMenu.GameIsPaused) return;
         if (Input.GetMouseButtonDown(0)) // click izquierdo
         {
             targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -58,6 +61,8 @@ public class WeaponDemo : MonoBehaviour,IPooledObject
 
     public void OnSpawn()
     {
+        if(pickUp==null) pickUp = GetComponent<AudioSource>();
+        pickUp.Play();
         damage = damageFijo;
     }
 

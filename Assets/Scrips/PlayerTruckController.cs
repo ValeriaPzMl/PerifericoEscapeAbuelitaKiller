@@ -4,8 +4,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerPhysicsController : MonoBehaviour
 {
-    private float aceleracion = 2f;
-    private float freno = 4f;
+    private float aceleracion = 6f;
     private float velMax = 15f;
     private float anguloMaxLlantas = 10f;
     private float distanciaEjes = 6f;
@@ -78,7 +77,7 @@ public class PlayerPhysicsController : MonoBehaviour
 
             // --- DAÑO REALISTA ---
             float daño = impacto;   // Ajusta multiplicador según se sienta
-            takeDamage(daño);
+            takeDamage(daño*2);
 
             // --- KNOCKBACK DEL JUGADOR ---
             Vector2 normal = col.GetContact(0).normal;

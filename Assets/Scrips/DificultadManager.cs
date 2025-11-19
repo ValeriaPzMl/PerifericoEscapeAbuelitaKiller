@@ -10,8 +10,8 @@ public class DificultadManager : MonoBehaviour
     public UnifiedSpawner unifiedSpawner;
 
     [Header("Configuración de dificultad")]
-    public float kmCambioA4 = 2f;
-    public float kmCambioA5 = 5f;
+    public float kmCambioA4 = 1f;
+    public float kmCambioA5 = 2f;
 
     private int carrilesActuales = 3;
     private int dificultad;
@@ -32,7 +32,7 @@ public class DificultadManager : MonoBehaviour
         {
             CambiarACarriles(5);
         }
-        int kmInt =(int) Mathf.Round(km*5);
+        int kmInt =(int) Mathf.Round(km*7);
         if (dificultad < kmInt&&dificultad<8)
         {
             Debug.Log($"kms {kmInt}");

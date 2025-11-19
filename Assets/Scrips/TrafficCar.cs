@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using TMPro; // Asegúrate de tener TextMeshPro importado
 using UnityEngine.SceneManagement;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 public class TrafficCar : MonoBehaviour, IPooledObject
@@ -21,6 +22,9 @@ public class TrafficCar : MonoBehaviour, IPooledObject
     private int health;
     public int distanciaMaxima = 20;
     private bool vivo;
+    private bool agresivo;
+    private bool visible;
+    [Range(0f, 1f)] public float queTanAgresivo;
 
     [Header("Sensores de tráfico")]
     public float distanciaDeteccion = 3f;   // distancia para detectar autos al frente
@@ -35,7 +39,8 @@ public class TrafficCar : MonoBehaviour, IPooledObject
     public DisplayData matador;
     public EnemyWeapon atacador;
 
-    private AudioSource pitar;
+    public AudioSource pitar;
+    public AudioSource explocion;
 
     [Header("enemigos")]
     public string categoria;
@@ -47,47 +52,10 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         velocidadActual = velocidad;
         health = vidaInicial;
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        pitar = GetComponent<AudioSource>();
         //protaCS = player.GetComponent<PlayerPhysicsController>();
 
     }
 
-    void Update()
-    {
-        // Detecta vehículo enfrente con BoxCast más preciso
-        RaycastHit2D hit = Physics2D.BoxCast(
-            transform.position + transform.up * (altoDeteccion / 2),
-            new Vector2(anchoDeteccion, altoDeteccion),
-            0f,
-            transform.up,
-            distanciaDeteccion,
-            trafficLayer
-        );
-
-        if (hit.collider != null)
-        {
-            TrafficCar otroCarro = hit.collider.GetComponent<TrafficCar>();
-
-            if (otroCarro != null)
-            {
-                // suavizar cambio de velocidad
-                velocidadActual = Mathf.Lerp(
-                    velocidadActual,
-                    otroCarro.velocidadActual,
-                    Time.deltaTime * 3f
-                );
-            }
-        }
-        else if (!estaChocando)
-        {
-            // Regresa a velocidad base
-            velocidadActual = Mathf.Lerp(
-                velocidadActual,
-                velocidad,
-                Time.deltaTime * 0.8f
-            );
-        }
-    }
     void FixedUpdate()
     {
         // movimiento estable
@@ -106,8 +74,16 @@ public class TrafficCar : MonoBehaviour, IPooledObject
                 DevolverAlPool();
             }
         }
+        if(agresivo && visible)SeguirLineaXAgresivo();
     }
-
+    private void OnBecameVisible()
+    {
+        visible = true;
+    }
+    private void OnBecameInvisible()
+    {
+        visible = false;
+    }
 
     // 🔹 Funciones de colisión
     private void OnCollisionEnter2D(Collision2D col)
@@ -131,7 +107,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
                 otroRB.AddForce(-normal * impacto * 2f, ForceMode2D.Impulse);
 
             estaChocando = true;
-            if (pitar != null) pitar.Play();
+            
             return;
         }
 
@@ -140,7 +116,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         {
             int dmg = Mathf.RoundToInt(impacto);
             TakeDamage(dmg);
-
+            if (pitar != null) pitar.Play();
             rb.AddForce(normal * impacto * 3f, ForceMode2D.Impulse);
             return;
         }
@@ -148,20 +124,12 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         // CHOQUE CON PARED
         if (col.collider.CompareTag("limites"))
         {
-            DevolverAlPool();
+            muerte();
             return;
         }
     }
 
 
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        estaChocando = false;
-        //velocidadActual = velocidad;
-        // Al dejar de chocar, libera movimiento lateral otra vez
-        //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-    }
 
     // 🔹 Gizmos para depuración
     void OnDrawGizmos()
@@ -169,12 +137,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position, new Vector3(anchoDeteccion, altoDeteccion, 0));
 
-        Gizmos.color = Physics2D.Raycast(transform.position, Vector2.up, distanciaDeteccion, trafficLayer)
-                ? Color.green
-                : Color.red; Vector3 origen = transform.position;
-        Vector3 direccion = Vector3.up * distanciaDeteccion;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.up * distanciaDeteccion);
-        Gizmos.DrawSphere(origen + direccion, 0.1f);
+        
     }
 
     // 🔹 Pooling y limpieza
@@ -225,8 +188,8 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         Debug.Log($"golpe de {dmg} dejo la vida en {health}");
         if (atacador != null) atacador.EstaSiendoAtacado();
         if (health <= 0&&vivo)
-        {
-            vivo = false;
+        { 
+            muerte();
             if (enemigo)
             {
                 GameObject pickup = PoolManager.Instance.GetFromPool(categoria, "Taker");
@@ -236,21 +199,22 @@ public class TrafficCar : MonoBehaviour, IPooledObject
                 }
 
             }
-            muerte();
+           
         }
     }
 
     public void muerte()
     {
+        vivo = false;
         quitarHits();
         matador.CarroMuerto();
+        explocion.Play();
         explotar.SetTrigger("explosion");
     }
 
     public void OnSpawn()
     {
-        if(pitar==null)
-            pitar=GetComponent<AudioSource>();
+
 
         if (matador == null)
             matador = FindFirstObjectByType<DisplayData>();
@@ -267,6 +231,8 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         explotar.Rebind();
         explotar.Update(0f);
         vivo = true;
+        float rand = UnityEngine.Random.value;
+        agresivo = (rand < queTanAgresivo);
     }
 
     public void OnDespawn()
@@ -277,6 +243,23 @@ public class TrafficCar : MonoBehaviour, IPooledObject
             explotar.Update(0f);
         }
     }
+    private void SeguirLineaXAgresivo()
+    {
+        if (!agresivo || player == null) return;
+
+        // Solo mover en eje X, manteniendo Y igual
+        float objetivoX = player.position.x;
+
+        // Velocidad del desvío horizontal
+        float velocidadLateral = 3f;
+
+        // Interpolación suave hacia la misma X
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Lerp(pos.x, objetivoX, Time.deltaTime * velocidadLateral);
+
+        transform.position = pos;
+    }
+
     public Vector2 GetDetectionSize()
     {
         return new Vector2(anchoDeteccion, altoDeteccion);
