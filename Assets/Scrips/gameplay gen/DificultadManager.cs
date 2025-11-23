@@ -5,8 +5,6 @@ public class DificultadManager : MonoBehaviour
     [Header("Referencias")]
     public PositionManager positionManager;
     public CarreteraSpawner carreteraSpawner;
-    public EnemySpawner enemySpawner;
-    public TrafficSpawner trafficSpawner;
     public UnifiedSpawner unifiedSpawner;
 
     [Header("Configuración de dificultad")]
@@ -32,7 +30,7 @@ public class DificultadManager : MonoBehaviour
         {
             CambiarACarriles(5);
         }
-        int kmInt =(int) Mathf.Round(km*7);
+        int kmInt =(int) Mathf.Round(km*6);
         if (dificultad < kmInt&&dificultad<8)
         {
             Debug.Log($"kms {kmInt}");

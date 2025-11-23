@@ -104,6 +104,9 @@ MonoBehaviour:
   speed: 35
   impactPrefab: {fileID: 918041914856014312, guid: 794e0673de40a404584d1bf14033ce52, type: 3}
   categoryName: pistolaClavos
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!82 &7297858920642128137
 AudioSource:
   m_ObjectHideFlags: 0

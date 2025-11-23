@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: 80c07bd573b979f41857451dc464eae5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8441162931644341122
+    second: botonGen_0
+  - first:
+      213: 7719043112353245144
+    second: botonGen_1
+  - first:
+      213: 4967028886971308056
+    second: botonGen_2
+  - first:
+      213: -4745811620871140160
+    second: botonGen_3
+  - first:
+      213: 4424703978288450815
+    second: botonGen_4
+  - first:
+      213: -2694890984753177218
+    second: botonGen_5
+  - first:
+      213: 3896813559281973068
+    second: botonGen_6
+  - first:
+      213: -4513317102263957739
+    second: botonGen_7
+  - first:
+      213: -4568536356821458625
+    second: botonGen_8
+  - first:
+      213: 7723710804543081728
+    second: botonGen_9
+  - first:
+      213: -6178976269159332765
+    second: botonGen_10
+  - first:
+      213: 5650199909083763253
+    second: botonGen_11
+  - first:
+      213: 6119010217418113025
+    second: botonGen_12
+  - first:
+      213: 2087170918645788282
+    second: botonGen_13
+  - first:
+      213: -7700125953876207459
+    second: botonGen_14
+  - first:
+      213: -3231991079805585682
+    second: botonGen_15
+  - first:
+      213: -233759532863622365
+    second: botonGen_16
+  - first:
+      213: 539793061199445244
+    second: botonGen_17
+  - first:
+      213: -3344764969089760426
+    second: botonGen_18
+  - first:
+      213: -2508946591917208788
+    second: botonGen_19
+  - first:
+      213: 3231968880563001146
+    second: botonGen_20
+  - first:
+      213: -5552398229533651894
+    second: botonGen_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: botonGen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 230
+        width: 1000
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db4981873329da4c931f531807a82d2
+      internalID: 434653102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a71f7375c4f60ea49904f41d3e7c5de0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      botonGen_0: 434653102
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

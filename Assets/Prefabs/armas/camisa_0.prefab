@@ -104,6 +104,9 @@ MonoBehaviour:
   speed: 25
   impactPrefab: {fileID: 5092407742948559473, guid: ee837113b4a76884c9708ab801f4c6b4, type: 3}
   categoryName: lanzaCamisas
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!82 &-6306701997090078575
 AudioSource:
   m_ObjectHideFlags: 0

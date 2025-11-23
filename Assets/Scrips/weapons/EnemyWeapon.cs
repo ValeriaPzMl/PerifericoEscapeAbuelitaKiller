@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UIElements;
 
 public class EnemyWeapon : MonoBehaviour
@@ -10,11 +10,11 @@ public class EnemyWeapon : MonoBehaviour
     public float coolDown = 2f;
     public string categoryName;
 
-    [Header("Detección")]
+    [Header("DetecciÃ³n")]
     public float distanciaAtaque = 10f; // distancia para detectar al jugador
     public string tagJugador = "Player";
 
-    private bool estaEnPantalla = false;
+    //private bool estaEnPantalla = false;
     private bool estaSiendoAtacado = false;
     private bool jugadorCerca = false;
     private bool puedeAtacar = false;
@@ -23,44 +23,50 @@ public class EnemyWeapon : MonoBehaviour
     private Transform jugador;
     private int plus = -90;
     private AudioSource mentar;
+    private Camera cam;
+    private bool enPantallaReal = false;
+
     void Start()
     {
         jugador = GameObject.FindGameObjectWithTag(tagJugador)?.transform;
         mentar = GetComponent<AudioSource>();
-
+        cam = Camera.main;
     }
+
 
     void Update()
     {
+        enPantallaReal = IsVisibleByCamera();
+        if (!enPantallaReal) return;   // ðŸŸ¢ Solo actÃºa si REALMENTE estÃ¡ visible
+
         if (jugador == null) return;
 
-        // --- Verificar distancia del jugador ---
         float distancia = Vector2.Distance(transform.position, jugador.position);
         jugadorCerca = distancia <= distanciaAtaque;
 
-        // --- Condición principal ---
-        puedeAtacar = estaEnPantalla && (estaSiendoAtacado || jugadorCerca);
+        puedeAtacar = enPantallaReal && (estaSiendoAtacado || jugadorCerca);
 
-        // --- Si puede atacar, dispara con cooldown ---
         if (puedeAtacar)
         {
             tiempoDisparo -= Time.deltaTime;
             if (tiempoDisparo <= 0f)
             {
                 LookAtMe();
-                if(mentar != null)mentar.Play();
+                if (mentar != null) mentar.Play();
                 Disparar();
                 tiempoDisparo = coolDown;
             }
         }
     }
 
+
+
     void Disparar()
     {
         animator.SetTrigger("Shoot");
     }
 
-    // Llamado desde el evento de animación
+    // Llamado desde el evento de animaciÃ³n
     public void LaunchProjectile()
     {
         if (firePoint == null) return;
@@ -76,22 +82,25 @@ public class EnemyWeapon : MonoBehaviour
         }
     }
 
-    // --- Detectar si está visible en cámara ---
-    void OnBecameVisible()
+    // --- Detectar si estÃ¡ visible en cÃ¡mara ---
+    bool IsVisibleByCamera()
     {
-        estaEnPantalla = true;
+        if (cam == null) return false;
+
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(cam);
+        Bounds bounds = GetComponentInParent<Renderer>().bounds;
+
+        return GeometryUtility.TestPlanesAABB(planes, bounds);
     }
 
-    void OnBecameInvisible()
-    {
-        estaEnPantalla = false;
-    }
+
+
 
     // --- Llamar externamente cuando el jugador lo ataque ---
     public void EstaSiendoAtacado()
     {
         estaSiendoAtacado = true;
-        Invoke(nameof(ResetAtaque), 5f); // vuelve a false después de 5 segundos
+        Invoke(nameof(ResetAtaque), 5f); // vuelve a false despuÃ©s de 5 segundos
     }
 
     void ResetAtaque()
@@ -102,10 +111,10 @@ public class EnemyWeapon : MonoBehaviour
     {
         Vector3 direction = jugador.position - transform.position;
 
-        // Calcular ángulo
+        // Calcular Ã¡ngulo
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Aplicar rotación
+        // Aplicar rotaciÃ³n
         transform.rotation = Quaternion.Euler(0, 0, angle + plus);
     }
     private void OnDrawGizmos()
@@ -113,10 +122,10 @@ public class EnemyWeapon : MonoBehaviour
         // Color rojo para el rango de ataque
         Gizmos.color = Color.red;
 
-        // Dibuja un círculo para visualizar el área de ataque
+        // Dibuja un cÃ­rculo para visualizar el Ã¡rea de ataque
         Gizmos.DrawWireSphere(transform.position, distanciaAtaque);
 
-        // Si existe el jugador, dibuja una línea hacia él
+        // Si existe el jugador, dibuja una lÃ­nea hacia Ã©l
         if (jugador != null)
         {
             Gizmos.color = Color.yellow;

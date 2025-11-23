@@ -104,6 +104,9 @@ MonoBehaviour:
   speed: 25
   impactPrefab: {fileID: 93617543692302436, guid: 4131e459ccd220a408f692fc6f286a68, type: 3}
   categoryName: catapultaSandia
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!82 &-771341975175460488
 AudioSource:
   m_ObjectHideFlags: 0

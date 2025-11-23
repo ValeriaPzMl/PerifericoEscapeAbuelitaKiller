@@ -13,6 +13,7 @@ public class UnifiedSpawner : MonoBehaviour
     public LayerMask trafficLayer;
     public Vector2[] medidasCarros;
     public int maxCoches = 30;
+    private float ultimoSpawnY;
 
     [Header("Enemy Config")]
     public int dificultad = 0;
@@ -43,17 +44,13 @@ public class UnifiedSpawner : MonoBehaviour
         if (posicionesCarriles.Length == 0) return;
 
         // Revisar cantidad de tráfico actual
-        int cochesActuales = GameObject.FindGameObjectsWithTag("Traffic").Length;
-        if (cochesActuales >= maxCoches) return;
-
+        
+        if (TrafficCounter.TotalTraffic >= maxCoches) return;
         // Buscar el objeto más adelantado
-        float maxY = camion.position.y;
-        var traficos = GameObject.FindGameObjectsWithTag("Traffic");
-        if (traficos.Length > 0)
-            maxY = traficos.Max(t => t.transform.position.y);
+
 
         // Calcular punto de spawn
-        float spawnY = Mathf.Max(maxY + Random.Range(8f, 15f), camion.position.y + zonaSegura);
+        float spawnY = Mathf.Max(ultimoSpawnY + Random.Range(8f, 15f),camion.position.y + zonaSegura);
         float x = posicionesCarriles[Random.Range(0, posicionesCarriles.Length)];
         Vector3 pos = new Vector3(x, spawnY, 0);
 
@@ -83,6 +80,8 @@ public class UnifiedSpawner : MonoBehaviour
         prefab.transform.position = pos;
         prefab.transform.rotation = Quaternion.identity;
         prefab.tag = "Traffic";
+        ultimoSpawnY = pos.y;
+
     }
 
     void SpawnEnemy(Vector3 pos)
@@ -102,6 +101,8 @@ public class UnifiedSpawner : MonoBehaviour
         prefab.transform.position = pos;
         prefab.transform.rotation = Quaternion.identity;
         prefab.tag = "Traffic";
+        ultimoSpawnY = pos.y;
+
     }
 
     void SpawnPowerUp(Vector3 pos)
@@ -113,6 +114,7 @@ public class UnifiedSpawner : MonoBehaviour
 
         prefab.transform.position = pos;
         prefab.transform.rotation = Quaternion.identity;
+        ultimoSpawnY = pos.y;
     }
 
     public void ActualizarCarriles(int numCarriles)

@@ -14,6 +14,8 @@ public class TrafficCar : MonoBehaviour, IPooledObject
     private Rigidbody2D rb;
     private Animator explotar;
     public string cat;
+    private float checkTimer = 0f;
+
 
     [Header("Parámetros generales")]
     public float velocidad = 5f;
@@ -30,7 +32,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
     public float distanciaDeteccion = 3f;   // distancia para detectar autos al frente
     public LayerMask trafficLayer;
 
-    private bool estaChocando = false;
+    //private bool estaChocando = false;
 
     [Header("Área de detección del carro")]
     public float anchoDeteccion = 1f;
@@ -58,24 +60,22 @@ public class TrafficCar : MonoBehaviour, IPooledObject
 
     void FixedUpdate()
     {
-        // movimiento estable
+        // Movimiento constante
         rb.linearVelocity = transform.up * velocidadActual;
 
-        if (player != null)
+        // Revisar poca frecuencia para ahorrar CPU
+        checkTimer += Time.deltaTime;
+        if (checkTimer >= 0.2f)   // cada 0.2s
         {
-            float distancia = Vector2.Distance(transform.position, player.position);
-            Vector2 haciaCarro = (transform.position - player.position).normalized;
-
-            float punto = Vector2.Dot(player.up, haciaCarro);
-
-            if (distancia > distanciaMaxima && punto < 0)
-            {
-                quitarHits();
-                DevolverAlPool();
-            }
+            checkTimer = 0f;
+            RevisarDistancias();
         }
-        if(agresivo && visible)SeguirLineaXAgresivo();
+
+        // Movimiento lateral de enemigos agresivos
+        if (agresivo && visible)
+            SeguirLineaXAgresivo();
     }
+
     private void OnBecameVisible()
     {
         visible = true;
@@ -106,7 +106,6 @@ public class TrafficCar : MonoBehaviour, IPooledObject
             if (otroRB != null)
                 otroRB.AddForce(-normal * impacto * 2f, ForceMode2D.Impulse);
 
-            estaChocando = true;
             
             return;
         }
@@ -129,6 +128,20 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         }
     }
 
+    void RevisarDistancias()
+    {
+        if (player == null) return;
+
+        float distancia = Vector2.Distance(transform.position, player.position);
+        Vector2 haciaCarro = (transform.position - player.position).normalized;
+        float punto = Vector2.Dot(player.up, haciaCarro);
+
+        if (distancia > distanciaMaxima && punto < 0)
+        {
+            quitarHits();
+            DevolverAlPool();
+        }
+    }
 
 
     // 🔹 Gizmos para depuración
@@ -233,6 +246,8 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         vivo = true;
         float rand = UnityEngine.Random.value;
         agresivo = (rand < queTanAgresivo);
+        TrafficCounter.TotalTraffic++;
+
     }
 
     public void OnDespawn()
@@ -242,6 +257,8 @@ public class TrafficCar : MonoBehaviour, IPooledObject
             explotar.Rebind();
             explotar.Update(0f);
         }
+        TrafficCounter.TotalTraffic--;
+
     }
     private void SeguirLineaXAgresivo()
     {

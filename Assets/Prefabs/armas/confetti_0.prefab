@@ -104,6 +104,9 @@ MonoBehaviour:
   speed: 25
   impactPrefab: {fileID: 1945977018723928232, guid: 936b0f451e732c74bb5095927c5eef2c, type: 3}
   categoryName: bazookaConfetti
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!82 &5637028869983878044
 AudioSource:
   m_ObjectHideFlags: 0

@@ -104,6 +104,9 @@ MonoBehaviour:
   speed: 30
   impactPrefab: {fileID: 6808771528463703833, guid: bfe1276d7e2e9e047bf2554a60ee3dc0, type: 3}
   categoryName: bazooka
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!82 &7589251304673463280
 AudioSource:
   m_ObjectHideFlags: 0

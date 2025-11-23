@@ -104,6 +104,9 @@ MonoBehaviour:
   speed: 25
   impactPrefab: {fileID: 3834695970422173501, guid: 50cafe482437aba47bcf56646636a959, type: 3}
   categoryName: tostadora
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!82 &-6265934010333841920
 AudioSource:
   m_ObjectHideFlags: 0

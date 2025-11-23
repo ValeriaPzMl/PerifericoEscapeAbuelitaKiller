@@ -104,6 +104,9 @@ MonoBehaviour:
   speed: 25
   impactPrefab: {fileID: 6528317772734254651, guid: b7a096b9346c0b646bf3156524e53aa8, type: 3}
   categoryName: catapultaPina
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!82 &-2142902490836132868
 AudioSource:
   m_ObjectHideFlags: 0

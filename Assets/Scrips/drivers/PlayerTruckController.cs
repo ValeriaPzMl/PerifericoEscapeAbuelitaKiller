@@ -44,9 +44,6 @@ public class PlayerPhysicsController : MonoBehaviour
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             velocidadActual -= aceleracion * Time.deltaTime;
 
-        // Fricción cuando no tocas nada
-        if (!Input.anyKey)
-            velocidadActual = Mathf.Lerp(velocidadActual, 0f, Time.deltaTime * 1.5f);
 
         velocidadActual = Mathf.Clamp(velocidadActual, -velMax * 0.5f, velMax);
     }
@@ -96,7 +93,7 @@ public class PlayerPhysicsController : MonoBehaviour
         damage *= Shield;
         vida -= damage;
         Debug.Log($"se ataco con {damage}");
-        if (vida <= 0) SceneManager.LoadScene(1);
+        if (vida <= 0) SceneManager.LoadScene("GameOver");
 
     }
     public void Proteger(float sh)

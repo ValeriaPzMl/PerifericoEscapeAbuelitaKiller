@@ -104,6 +104,9 @@ MonoBehaviour:
   speed: 30
   impactPrefab: {fileID: 3463323670416255988, guid: bb7419010a8862948bec2a7c59ade923, type: 3}
   categoryName: bombaAtomica
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!82 &4652691151008952257
 AudioSource:
   m_ObjectHideFlags: 0

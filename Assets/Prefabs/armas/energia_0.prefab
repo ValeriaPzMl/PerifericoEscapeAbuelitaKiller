@@ -104,6 +104,9 @@ MonoBehaviour:
   speed: 35
   impactPrefab: {fileID: 8525897813156945573, guid: 6897baa5db8036e4a805df4256ed2d59, type: 3}
   categoryName: canonEnergia
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!82 &3903920518814669863
 AudioSource:
   m_ObjectHideFlags: 0

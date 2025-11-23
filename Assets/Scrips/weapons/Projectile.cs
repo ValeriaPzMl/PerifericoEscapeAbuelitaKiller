@@ -10,6 +10,7 @@ public class ProjectileDemo : MonoBehaviour,IPooledObject
     public string categoryName;
     private AudioSource audiot;
     private bool Yo;
+    public LayerMask hitMask;
 
 
     public void Init(Vector3 target, int dmg,bool self)
@@ -55,7 +56,7 @@ public class ProjectileDemo : MonoBehaviour,IPooledObject
 
 
             // revisar si hay algún coche
-            Collider2D[] hits = Physics2D.OverlapCircleAll(targetPos, 0.5f);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(targetPos, 0.5f, hitMask);
             foreach (var hit in hits)
             { 
                 if (hit.CompareTag("Traffic")||(hit.CompareTag("Player")&& !Yo))

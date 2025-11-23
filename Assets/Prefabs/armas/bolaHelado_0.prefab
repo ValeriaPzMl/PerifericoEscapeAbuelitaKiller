@@ -104,6 +104,9 @@ MonoBehaviour:
   speed: 25
   impactPrefab: {fileID: 6373334883446531795, guid: 8413fa05f46ba2046aa8ad2f01dd7e77, type: 3}
   categoryName: helado
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!82 &-671105343366131820
 AudioSource:
   m_ObjectHideFlags: 0
