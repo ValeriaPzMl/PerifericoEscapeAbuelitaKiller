@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 81122178d0824f2428b69f9c7291f860
+guid: ccca33f7d8e776b42b6869a14845beca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5609954283384865713
-    second: conducir_0
-  - first:
-      213: 7002321862740375485
-    second: conducir_1
-  - first:
-      213: 8525677047015546553
-    second: conducir_2
-  - first:
-      213: 4108708017319082520
-    second: conducir_3
+      213: 5423981061170942245
+    second: medallaKm_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: conducir_0
+      name: medallaKm_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 73
-        width: 930
-        height: 670
+        x: 99
+        y: 115
+        width: 794
+        height: 794
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3b90a8c3b6f63a742abb71b3d215ce8e
-      internalID: 2009712571
+      spriteID: 5215a83a90ad54b40800000000000000
+      internalID: 5423981061170942245
       vertices: []
       indices: 
       edges: []
@@ -134,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0c74afbabff510845820ea6abacfc7be
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -143,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      conducir_0: 2009712571
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

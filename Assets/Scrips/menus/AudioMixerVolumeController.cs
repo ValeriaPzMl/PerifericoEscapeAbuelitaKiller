@@ -2,70 +2,60 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class AudioMixerVolumeController : MonoBehaviour
+public class DualAudioMixerController : MonoBehaviour
 {
-    [Header("Mixer")]
-    public AudioMixer mixer;                 // arrastra aquí tu AudioMixer
-    public string exposedParam = "MasterVolume"; // nombre exacto del parametro expuesto
+    [Header("Mixer 1 (ej. Música)")]
+    public AudioMixer mixer1;
+    public string exposedParam1 = "MasterVolumeMusic";
+    public Slider slider1;
+    public string prefKey1 = "music_volume";
 
-    [Header("UI (opcional)")]
-    public Slider volumeSlider;              // arrastra el slider (opcional)
-    public float defaultVolume = 1f;         // valor default 0..1
+    [Header("Mixer 2 (ej. SFX)")]
+    public AudioMixer mixer2;
+    public string exposedParam2 = "MasterVolume";
+    public Slider slider2;
+    public string prefKey2 = "sfx_volume";
 
-    // PlayerPrefs key
-    private const string PREF_KEY = "master_volume";
+    private const float MIN_DB = -80f;
 
     void Start()
     {
-        // cargar valor guardado (si existe)
-        float saved = PlayerPrefs.GetFloat(PREF_KEY, defaultVolume);
-
-        // aplicar al mixer
-        SetMasterVolume(saved, save: false);
-
-        // si hay slider, inicializarlo y conectarlo
-        if (volumeSlider != null)
-        {
-            volumeSlider.minValue = 0f;
-            volumeSlider.maxValue = 1f;
-            volumeSlider.value = saved;
-
-            // remover listeners previos y añadir el nuestro
-            volumeSlider.onValueChanged.RemoveAllListeners();
-            volumeSlider.onValueChanged.AddListener((v) => SetMasterVolume(v, save: true));
-        }
+        // Inicializar ambos sliders
+        InitSlider(slider1, prefKey1, (value) => SetVolume(mixer1, exposedParam1, value));
+        InitSlider(slider2, prefKey2, (value) => SetVolume(mixer2, exposedParam2, value));
     }
 
-    /// <summary>
-    /// Ajusta el volumen del AudioMixer.
-    /// sliderValue es 0..1 (0=mute, 1=full)
-    /// save=true guardará en PlayerPrefs
-    /// </summary>
-    public void SetMasterVolume(float sliderValue, bool save = true)
+    private void InitSlider(Slider slider, string prefKey, System.Action<float> onChange)
     {
-        if (mixer == null)
-        {
-            Debug.LogWarning("[AudioMixerVolumeController] mixer no asignado.");
-            return;
-        }
+        if (slider == null) return;
 
-        // evitar log(0). si es 0 usamos valor muy bajo en dB (mute)
-        const float minDb = -80f; // valor de "mute" para la mayoría de mixers
-        float dB;
+        // Cargar valor guardado o default 1
+        float saved = PlayerPrefs.GetFloat(prefKey, 1f);
 
-        if (sliderValue <= 0.0001f)
+        slider.minValue = 0f;
+        slider.maxValue = 1f;
+        slider.value = saved;
+
+        // Aplicar inmediatamente
+        onChange(saved);
+
+        // Listener
+        slider.onValueChanged.RemoveAllListeners();
+        slider.onValueChanged.AddListener((v) =>
         {
-            dB = minDb;
-        }
-        else
-        {
-            // conversión logarítmica: 20 * log10(slider)
-            dB = Mathf.Clamp(20f * Mathf.Log10(sliderValue), minDb, 0f);
-        }
+            onChange(v);
+            PlayerPrefs.SetFloat(prefKey, v);
+        });
+    }
+
+    private void SetVolume(AudioMixer mixer, string exposedParam, float sliderValue)
+    {
+        if (mixer == null) return;
+
+        float dB = (sliderValue <= 0.0001f)
+            ? MIN_DB
+            : Mathf.Clamp(20f * Mathf.Log10(sliderValue), MIN_DB, 0f);
 
         mixer.SetFloat(exposedParam, dB);
-
-        if (save)
-            PlayerPrefs.SetFloat(PREF_KEY, sliderValue);
     }
 }

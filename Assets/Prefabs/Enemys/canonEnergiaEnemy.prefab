@@ -123,10 +123,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8040ae427d494ba4597f6dcb565f6424, type: 3}
-  m_Resource: {fileID: 8300000, guid: 8040ae427d494ba4597f6dcb565f6424, type: 3}
+  m_audioClip: {fileID: 8300000, guid: da111db185369884c83169b12d7e1499, type: 3}
+  m_Resource: {fileID: 8300000, guid: da111db185369884c83169b12d7e1499, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.508
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2188093233258410294}
   firePoint: {fileID: 6876850422709127901}
-  damage: 100
+  damage: 50
   coolDown: 3
   categoryName: canonEnergia
   distanciaAtaque: 7

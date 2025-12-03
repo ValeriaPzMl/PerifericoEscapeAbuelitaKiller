@@ -154,10 +154,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 7ec3680b89a28f84dab6b3c42f6bc18c, type: 3}
-  m_Resource: {fileID: 8300000, guid: 7ec3680b89a28f84dab6b3c42f6bc18c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: da111db185369884c83169b12d7e1499, type: 3}
+  m_Resource: {fileID: 8300000, guid: da111db185369884c83169b12d7e1499, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.508
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8074151189829052677}
   firePoint: {fileID: 6999507029065645905}
-  damage: 90
+  damage: 50
   coolDown: 2
   categoryName: helado
   distanciaAtaque: 6

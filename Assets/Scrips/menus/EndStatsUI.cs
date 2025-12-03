@@ -7,21 +7,32 @@ public class EndStatsUI : MonoBehaviour
 {
     public TextMeshProUGUI kmPartidaText;
     public TextMeshProUGUI carrosPartidaText;
+    public TextMeshProUGUI kmPartidaSombra;
+    public TextMeshProUGUI carrosPartidaSombra;
+    public TextMeshProUGUI nRecord;
 
-    public TextMeshProUGUI kmRecordText;
-    public TextMeshProUGUI carrosRecordText;
+
+    private bool record;
 
     public void Start()
     {
-        kmPartidaText.text = $"Km esta partida: {EndOfRunData.km:F2}";
-        carrosPartidaText.text = $"Carros destruidos: {EndOfRunData.carros}";
+        kmPartidaText.text = $"{EndOfRunData.km:F2}";
+        carrosPartidaText.text = $"{EndOfRunData.carros}";
+        kmPartidaSombra.text = $"{EndOfRunData.km:F2}";
+        carrosPartidaSombra.text = $"{EndOfRunData.carros}";
 
-        kmRecordText.text = $"Récord Km: {StatsManager.Instance.maxKm:F2}";
-        carrosRecordText.text = $"Récord Carros: {StatsManager.Instance.maxCarros}";
+        record = StatsManager.Instance.cambio;
+        nRecord.gameObject.SetActive(record);
+
+        // kmRecordText.text = $"{:F2}";
+        // carrosRecordText.text = $"{StatsManager.Instance.maxCarros}";
     }
 
     public void VolverMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Start");
+    }
+    public void VentanaAch() { 
+        SceneManager.LoadScene("AchievementsScene");
     }
 }

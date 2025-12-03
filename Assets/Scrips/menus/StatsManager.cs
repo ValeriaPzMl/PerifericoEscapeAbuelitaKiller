@@ -6,6 +6,7 @@ public class StatsManager : MonoBehaviour
 
     public float maxKm;
     public int maxCarros;
+    public bool cambio;
 
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class StatsManager : MonoBehaviour
 
     public void ProcesarStats(float km, int carros)
     {
-        bool cambio = false;
+        cambio = false;
 
         if (km > maxKm)
         {

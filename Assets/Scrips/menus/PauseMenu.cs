@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -29,7 +30,6 @@ public class PauseMenu : MonoBehaviour
     {
         defaultFixedDelta = Time.fixedDeltaTime;
         if (pausePanel != null) pausePanel.SetActive(false);
-
         PrepareCursor();
         ApplyCursor(); // aplica al iniciar
     }
@@ -38,7 +38,14 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) TogglePause();
     }
+    public void Quit()
+    {
+        Time.timeScale = 1f; // MUY IMPORTANTE
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
+        SceneManager.LoadScene("Start");
+    }
     // Prepara runtimeCursorTexture (posible reescalado) y hotspot
     private void PrepareCursor()
     {
@@ -170,4 +177,5 @@ public class PauseMenu : MonoBehaviour
         // importante: marcar como no 'hideFlags' ni Read/Write específicos; es un texture runtime.
         return result;
     }
+
 }

@@ -123,7 +123,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         // CHOQUE CON PARED
         if (col.collider.CompareTag("limites"))
         {
-            muerte();
+            muerte(false);
             return;
         }
     }
@@ -202,7 +202,7 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         if (atacador != null) atacador.EstaSiendoAtacado();
         if (health <= 0&&vivo)
         { 
-            muerte();
+            muerte(true);
             if (enemigo)
             {
                 GameObject pickup = PoolManager.Instance.GetFromPool(categoria, "Taker");
@@ -216,11 +216,11 @@ public class TrafficCar : MonoBehaviour, IPooledObject
         }
     }
 
-    public void muerte()
+    public void muerte(bool matado)
     {
         vivo = false;
         quitarHits();
-        matador.CarroMuerto();
+        if (matado)matador.CarroMuerto();
         explocion.Play();
         explotar.SetTrigger("explosion");
     }

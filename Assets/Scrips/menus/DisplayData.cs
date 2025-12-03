@@ -29,7 +29,7 @@ public class DisplayData : MonoBehaviour
     public List<Sprite> projectileSprites; // misma size que names, arrastrar sprites
 
     private Dictionary<string, Sprite> projectileMap;
-    private int carrosMuertos = 0;
+    [HideInInspector]public int carrosMuertos = 0;
     private Coroutine vidaCoroutine;
     private int multi;
 

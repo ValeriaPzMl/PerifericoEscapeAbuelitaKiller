@@ -5,20 +5,28 @@ using UnityEngine.SceneManagement;
 public class PlayerPhysicsController : MonoBehaviour
 {
     private float aceleracion = 6f;
-    private float velMax = 15f;
+    private float velMax = 20f;
     private float anguloMaxLlantas = 10f;
     private float distanciaEjes = 6f;
 
     private Rigidbody2D rb;
     private float velocidadActual = 0f;
     private float anguloVolante = 0f;
-    private float vida = 800;
+    public float vida = 1000;
     private int carrosMuertos;
     private float Shield = 1;
+
+    public GameOverController perde;
+    public DisplayData displayData;
+    private PositionManager positionManager;
+    private float tiempoVolcado = 0f;
+    public float tiempoMaxVolcado = 4f;
+
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        positionManager = GetComponent<PositionManager>();
         // Opcional: mejorar colisiones si vas muy rápido
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
@@ -26,6 +34,34 @@ public class PlayerPhysicsController : MonoBehaviour
 
     void Update()
     {
+        // --- DETECCIÓN DE VOLCADURA ---
+        float rotZ = transform.eulerAngles.z;
+
+        // Convertir a rango -180 a 180
+        if (rotZ > 180) rotZ -= 360;
+
+        bool estaVolcado = rotZ > 90f || rotZ < -90f;
+
+        if (estaVolcado)
+        {
+            tiempoVolcado += Time.deltaTime;
+
+            if (tiempoVolcado >= tiempoMaxVolcado)
+            {
+                // ACCIÓN CUANDO PASA 4s VOLCADO
+                Debug.Log("🚨 El carro estuvo volcado por más de 4 segundos");
+
+                carrosMuertos = displayData.carrosMuertos;
+                float dis = positionManager.differenceX;
+                perde.GameOver(dis, carrosMuertos);
+
+                tiempoVolcado = 0; // Restablecer
+            }
+        }
+        else
+        {
+            tiempoVolcado = 0;
+        }
         // Input volante
         float inputTurn = 0f;
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -74,7 +110,7 @@ public class PlayerPhysicsController : MonoBehaviour
 
             // --- DAÑO REALISTA ---
             float daño = impacto;   // Ajusta multiplicador según se sienta
-            takeDamage(daño*2);
+            takeDamage(daño);
 
             // --- KNOCKBACK DEL JUGADOR ---
             Vector2 normal = col.GetContact(0).normal;
@@ -93,7 +129,12 @@ public class PlayerPhysicsController : MonoBehaviour
         damage *= Shield;
         vida -= damage;
         Debug.Log($"se ataco con {damage}");
-        if (vida <= 0) SceneManager.LoadScene("GameOver");
+        if (vida < 20) {
+            carrosMuertos = displayData.carrosMuertos;
+            float dis = positionManager.differenceX;
+            perde.GameOver(dis,carrosMuertos);
+        }
+        
 
     }
     public void Proteger(float sh)
@@ -134,6 +175,6 @@ public class PlayerPhysicsController : MonoBehaviour
     }
     public void CompletarVida()
     {
-        vida = (vida<800)?800 :vida;
+        vida = (vida<1000)?1000 :vida;
     }
 }

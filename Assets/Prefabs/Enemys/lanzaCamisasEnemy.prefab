@@ -123,10 +123,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 41f8985703dddc3448803ccfd95fd942, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8040ae427d494ba4597f6dcb565f6424, type: 3}
-  m_Resource: {fileID: 8300000, guid: 8040ae427d494ba4597f6dcb565f6424, type: 3}
+  m_audioClip: {fileID: 8300000, guid: da111db185369884c83169b12d7e1499, type: 3}
+  m_Resource: {fileID: 8300000, guid: da111db185369884c83169b12d7e1499, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.508
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7072849706431192578}
   firePoint: {fileID: 9061703393951367339}
-  damage: 60
+  damage: 30
   coolDown: 3
   categoryName: lanzaCamisas
   distanciaAtaque: 7

@@ -1,5 +1,7 @@
+using System;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class UnifiedSpawner : MonoBehaviour
 {
@@ -25,9 +27,17 @@ public class UnifiedSpawner : MonoBehaviour
     // El resto del tiempo genera tráfico normal
 
     [Header("Pick ups")]
-    public string armas;
+    public string[] armas;
 
     private float timer;
+
+    private void Start()
+    {
+        ultimoSpawnY = camion.position.y; // o 0
+        timer = 0f;
+        TrafficCounter.TotalTraffic = 0;
+
+    }
 
     void Update()
     {
@@ -50,12 +60,12 @@ public class UnifiedSpawner : MonoBehaviour
 
 
         // Calcular punto de spawn
-        float spawnY = Mathf.Max(ultimoSpawnY + Random.Range(8f, 15f),camion.position.y + zonaSegura);
-        float x = posicionesCarriles[Random.Range(0, posicionesCarriles.Length)];
+        float spawnY = Mathf.Max(ultimoSpawnY + UnityEngine.Random.Range(8f, 15f),camion.position.y + zonaSegura);
+        float x = posicionesCarriles[UnityEngine.Random.Range(0, posicionesCarriles.Length)];
         Vector3 pos = new Vector3(x, spawnY, 0);
 
         // Decidir tipo de spawn
-        float rand = Random.value;
+        float rand = UnityEngine.Random.value;
         if (rand < probabilidadPowerUp)
             SpawnPowerUp(pos);
         else if (rand < probabilidadPowerUp + probabilidadEnemy)
@@ -68,7 +78,7 @@ public class UnifiedSpawner : MonoBehaviour
     {
         if (medidasCarros.Length == 0) return;
 
-        int numeroRandom = Random.Range(0, medidasCarros.Length);
+        int numeroRandom = UnityEngine.Random.Range(0, medidasCarros.Length);
         Vector2 detectionSize = medidasCarros[numeroRandom];
 
         Collider2D check = Physics2D.OverlapBox(pos, detectionSize, 0f, trafficLayer);
@@ -88,7 +98,7 @@ public class UnifiedSpawner : MonoBehaviour
     {
         if (dificultad <= 0 || medidasEnemigos.Length == 0) return;
 
-        int numeroRandom = Random.Range(0, dificultad);
+        int numeroRandom = UnityEngine.Random.Range(0, dificultad);
         numeroRandom = Mathf.Clamp(numeroRandom, 0, medidasEnemigos.Length - 1);
 
         Vector2 detectionSize = medidasEnemigos[numeroRandom];
@@ -108,7 +118,7 @@ public class UnifiedSpawner : MonoBehaviour
     void SpawnPowerUp(Vector3 pos)
     {
 
-        int numeroRandom = Random.Range(0, 8);
+        int numeroRandom = UnityEngine.Random.Range(0, 8);
         GameObject prefab = PoolManager.Instance.GetFromPool("PowerUps", $"Power{numeroRandom + 1}");
         if (prefab == null) return;
 
@@ -137,11 +147,19 @@ public class UnifiedSpawner : MonoBehaviour
     public void SubirDificultad(int dif)
     {
         dificultad = dif;
+        Debug.Log($"subio la dificultad {dificultad} ");
+
     }
 
-    public void SpawnArma(int num)
+    public void SpawnArma(string arma)
     {
-        int numeroRandom = Random.Range(0, posicionesCarriles.Length);
 
+        GameObject prefab = PoolManager.Instance.GetFromPool(arma, "Taker");
+        if (prefab == null) return;
+        Vector3 pos = new Vector3(0, ultimoSpawnY, 0);
+
+        prefab.transform.position = pos;
+        prefab.transform.rotation = Quaternion.identity;
+        ultimoSpawnY = pos.y;
     }
 }

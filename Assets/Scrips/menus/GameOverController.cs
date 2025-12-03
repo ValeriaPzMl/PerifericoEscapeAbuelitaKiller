@@ -13,12 +13,23 @@ public class GameOverController : MonoBehaviour
     {
         Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
-
+        ResetCursorToDefault();
         partidaKm = kmRecorridos;
         partidaCarros = carrosDestruidos;
 
         waitingForInput = true;
     }
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        gameOverPanel.SetActive(true);
+        ResetCursorToDefault();
+        partidaKm = 0;
+        partidaCarros = 0;
+
+        waitingForInput = true;
+    }
+
 
     private void Update()
     {
@@ -39,7 +50,19 @@ public class GameOverController : MonoBehaviour
         // pasa también stats de esta partida para la pantalla final
         EndOfRunData.km = partidaKm;
         EndOfRunData.carros = partidaCarros;
-
-        SceneManager.LoadScene("EndStatsScene");
+        
+        SceneManager.LoadScene("GameOver");
     }
+    public void ResetCursorToDefault()
+    {
+        // restaurar textura por defecto
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
+        // volver a mostrar cursor
+        Cursor.visible = true;
+
+        // desbloquear para que pueda moverse normal
+        Cursor.lockState = CursorLockMode.None;
+    }
+
 }
