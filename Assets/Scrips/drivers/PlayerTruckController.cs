@@ -7,7 +7,7 @@ public class PlayerPhysicsController : MonoBehaviour
     private float aceleracion = 6f;
     private float velMax = 20f;
     private float anguloMaxLlantas = 10f;
-    private float distanciaEjes = 6f;
+    private float distanciaEjes = 5f;
 
     private Rigidbody2D rb;
     private float velocidadActual = 0f;
@@ -175,8 +175,9 @@ public class PlayerPhysicsController : MonoBehaviour
     public float MasShoot()
     {
         if (velocidadActual < 5) return 1f;
-        else if(velocidadActual >= 5)return 3f;
-        else return 5f;
+        else if(velocidadActual >= 5&&velocidadActual<10)return 3f;
+        else if (velocidadActual >= 10 && velocidadActual < 15) return 5f;
+        else return 7f;
     }
     public void MasVida(float x)
     {

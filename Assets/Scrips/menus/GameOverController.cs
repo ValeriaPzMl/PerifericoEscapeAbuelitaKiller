@@ -39,18 +39,18 @@ public class GameOverController : MonoBehaviour
 
     private IEnumerator EsperarAudioYActivarInput()
     {
+        float waitTime = (final != null && final.clip != null)
+            ? final.clip.length : 0.1f;
+
         if (final != null)
             final.Play();
 
-        // Espera hasta que termine el audio
-        if (final != null)
-            yield return new WaitWhile(() => final.isPlaying);
+        yield return new WaitForSecondsRealtime(waitTime);
 
-        // Ahora sí permitimos input
         waitingForInput = true;
         textContinue.gameObject.SetActive(true);
-
     }
+
 
     private void Update()
     {

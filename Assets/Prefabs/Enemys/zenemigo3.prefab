@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: -1433749885
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2556296578183535517, guid: e76284aa9d721df4e86b78038d09262c, type: 3}
+  m_Sprite: {fileID: -6653565994760843518, guid: 213777bb9a7affd49aedbb7d08b482b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,17 +128,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00325948, y: -0.0073055327}
+  m_Offset: {x: -0.00325948, y: 0.00420928}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.71, y: 1.35}
+    oldSize: {x: 0.556, y: 1.202}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5796176, y: 1.3329408}
+  m_Size: {x: 0.5796176, y: 1.2024388}
   m_EdgeRadius: 0
 --- !u!114 &5738777470344111679
 MonoBehaviour:
@@ -162,7 +162,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   anchoDeteccion: 2
-  altoDeteccion: 5.5
+  altoDeteccion: 5
   matador: {fileID: 0}
   atacador: {fileID: 8747050793298023257}
   pitar: {fileID: 3304065433963698459}
