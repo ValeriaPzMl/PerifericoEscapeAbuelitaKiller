@@ -122,6 +122,15 @@ public class PlayerPhysicsController : MonoBehaviour
                 otroRB.AddForce(-normal * impacto*2f, ForceMode2D.Impulse);
 
             Debug.Log($"💥 Impacto={impacto} | Daño={daño}");
+        }else if (col.collider.CompareTag("limites"))
+        {
+            // --- VELOCIDAD DEL IMPACTO ---
+            float impacto = col.relativeVelocity.magnitude;
+
+            // --- DAÑO REALISTA ---
+            float daño = impacto;   // Ajusta multiplicador según se sienta
+            takeDamage(daño);
+
         }
     }
     public void takeDamage(float damage)

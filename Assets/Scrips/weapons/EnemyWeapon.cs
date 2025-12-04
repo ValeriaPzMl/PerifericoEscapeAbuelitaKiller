@@ -22,14 +22,12 @@ public class EnemyWeapon : MonoBehaviour
     private float tiempoDisparo = 0f;
     private Transform jugador;
     private int plus = -90;
-    private AudioSource mentar;
     private Camera cam;
     private bool enPantallaReal = false;
 
     void Start()
     {
         jugador = GameObject.FindGameObjectWithTag(tagJugador)?.transform;
-        mentar = GetComponent<AudioSource>();
         cam = Camera.main;
     }
 
@@ -52,7 +50,6 @@ public class EnemyWeapon : MonoBehaviour
             if (tiempoDisparo <= 0f)
             {
                 LookAtMe();
-                if (mentar != null) mentar.Play();
                 Disparar();
                 tiempoDisparo = coolDown;
             }

@@ -1,5 +1,8 @@
+ï»¿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEngine.UI;   // â† NECESARIO para IEnumerator
 
 public class GameOverController : MonoBehaviour
 {
@@ -8,28 +11,46 @@ public class GameOverController : MonoBehaviour
     private bool waitingForInput;
     private float partidaKm;
     private int partidaCarros;
-
+    public AudioSource final;
+    public TextMeshProUGUI textContinue;
     public void GameOver(float kmRecorridos, int carrosDestruidos)
     {
         Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
         ResetCursorToDefault();
+
         partidaKm = kmRecorridos;
         partidaCarros = carrosDestruidos;
 
-        waitingForInput = true;
+        StartCoroutine(EsperarAudioYActivarInput());
     }
+
     public void GameOver()
     {
         Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
         ResetCursorToDefault();
+
         partidaKm = 0;
         partidaCarros = 0;
 
-        waitingForInput = true;
+        StartCoroutine(EsperarAudioYActivarInput());
     }
 
+    private IEnumerator EsperarAudioYActivarInput()
+    {
+        if (final != null)
+            final.Play();
+
+        // Espera hasta que termine el audio
+        if (final != null)
+            yield return new WaitWhile(() => final.isPlaying);
+
+        // Ahora sÃ­ permitimos input
+        waitingForInput = true;
+        textContinue.gameObject.SetActive(true);
+
+    }
 
     private void Update()
     {
@@ -42,27 +63,21 @@ public class GameOverController : MonoBehaviour
     private void Continuar()
     {
         waitingForInput = false;
+        textContinue.gameObject.SetActive(false);
         Time.timeScale = 1f;
 
-        // solo guarda máximos
         StatsManager.Instance.ProcesarStats(partidaKm, partidaCarros);
 
-        // pasa también stats de esta partida para la pantalla final
         EndOfRunData.km = partidaKm;
         EndOfRunData.carros = partidaCarros;
-        
+
         SceneManager.LoadScene("GameOver");
     }
+
     public void ResetCursorToDefault()
     {
-        // restaurar textura por defecto
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-
-        // volver a mostrar cursor
         Cursor.visible = true;
-
-        // desbloquear para que pueda moverse normal
         Cursor.lockState = CursorLockMode.None;
     }
-
 }
