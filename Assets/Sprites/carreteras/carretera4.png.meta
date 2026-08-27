@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      carretera4_0: 9094318468905688280
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

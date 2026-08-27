@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      camionsote_0: 3745433743480000507
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      glich_0: 4191935670997845806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
